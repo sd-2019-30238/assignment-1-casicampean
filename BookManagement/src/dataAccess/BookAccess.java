@@ -12,7 +12,7 @@ public class BookAccess {
 
 
 
-    private void addBook(String title, String author, Date date, String gendre, int count) {
+    private void addBook(String title, String author, Date date, String genre, int count) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Book.class)
@@ -21,7 +21,7 @@ public class BookAccess {
         // create session
         Session session = factory.getCurrentSession();
         try {
-            Book book1 = new Book (title, author, date, gendre, count);
+            Book book1 = new Book (title, author, date, genre, count);
             session.beginTransaction();
             session.save(book1);
             session.getTransaction().commit();
@@ -95,8 +95,6 @@ public class BookAccess {
 
             Book myBook = session.get(Book.class, id);
 
-            //session.createQuery("delete from Student where id=2").executeUpdate();
-
             session.delete(myBook);
 
             session.getTransaction().commit();
@@ -139,11 +137,11 @@ public class BookAccess {
             System.out.println("\n\nBooks who have the title of Daffy OR the author Duck");
             displayBooks(books);
 
-            // query students where email LIKE '%gmail.com'
-            books = session.createQuery("from Book s where"
-                    + " s.gendre LIKE '%edy'").list();
 
-            System.out.println("\n\nBooks whose gendre ends with edy");
+            books = session.createQuery("from Book s where"
+                    + " s.genre LIKE '%edy'").list();
+
+            System.out.println("\n\nBooks whose genre ends with edy");
             displayBooks(books);
 
 

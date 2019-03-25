@@ -18,8 +18,8 @@ public class Book {
     private String author;
     @Column(name = "releaseDate")
     private Date releaseDate;
-    @Column(name = "gendre")
-    private String gendre;
+    @Column(name = "genre")
+    private String genre;
     @Column(name = "count")
     private int count;
 
@@ -30,7 +30,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;
-        this.gendre = gendre;
+        this.genre = gendre;
         this.count = count;
     }
 
@@ -45,7 +45,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", releaseDate=" + releaseDate +
-                ", gendre='" + gendre + '\'' +
+                ", gendre='" + genre + '\'' +
                 ", count=" + count +
                 '}';
     }
@@ -83,11 +83,11 @@ public class Book {
     }
 
     public String getGendre() {
-        return gendre;
+        return genre;
     }
 
     public void setGendre(String gendre) {
-        this.gendre = gendre;
+        this.genre = gendre;
     }
 
     public int getCount() {
