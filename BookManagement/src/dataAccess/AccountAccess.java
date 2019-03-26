@@ -54,7 +54,7 @@ public class AccountAccess {
 
             session.beginTransaction();
             Account account = session.get(Account.class, id);
-            account.setType("user");
+            account.setPayment("1 month");
             session.getTransaction().commit();
         }finally {
             factory.close();

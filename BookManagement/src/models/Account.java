@@ -15,6 +15,8 @@ public class Account {
     private String password;
     @Column(name = "type")
     private String type;
+    @Column (name = "payment")
+    private String payment;
 
 
     @Override
@@ -24,7 +26,16 @@ public class Account {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", type='" + type + '\'' +
+                ", payment='" + payment + '\'' +
                 '}';
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
     public Account(){

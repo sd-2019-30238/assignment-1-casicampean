@@ -17,21 +17,24 @@ public class Book {
     @Column(name = "author")
     private String author;
     @Column(name = "releaseDate")
-    private Date releaseDate;
+    private int releaseDate;
     @Column(name = "genre")
     private String genre;
     @Column(name = "count")
     private int count;
+    @Column (name = "borrowedTimes")
+    private int borrowedTimes;
 
 
 
 
-    public Book(String title, String author, Date releaseDate, String gendre, int count) {
+    public Book(String title, String author, int releaseDate, String gendre, int count,int borrowedTimes) {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;
         this.genre = gendre;
         this.count = count;
+        this.borrowedTimes = borrowedTimes;
     }
 
     public Book(){
@@ -46,7 +49,8 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", releaseDate=" + releaseDate +
                 ", gendre='" + genre + '\'' +
-                ", count=" + count +
+                ", count=" + count + '\'' +
+                ", borrowedTimes=" + borrowedTimes +
                 '}';
     }
 
@@ -74,20 +78,12 @@ public class Book {
         this.author = author;
     }
 
-    public Date getReleaseDate() {
+    public int getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(int releaseDate) {
         this.releaseDate = releaseDate;
-    }
-
-    public String getGendre() {
-        return genre;
-    }
-
-    public void setGendre(String gendre) {
-        this.genre = gendre;
     }
 
     public int getCount() {
@@ -97,4 +93,21 @@ public class Book {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getBorrowedTimes() {
+        return borrowedTimes;
+    }
+
+    public void setBorrowedTimes(int borrowedTimes) {
+        this.borrowedTimes = borrowedTimes;
+    }
+
 }

@@ -12,7 +12,7 @@ public class BookAccess {
 
 
 
-    private void addBook(String title, String author, Date date, String genre, int count) {
+    private void addBook(String title, String author, int date, String genre, int count, int borrowedTimes) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Book.class)
@@ -21,7 +21,7 @@ public class BookAccess {
         // create session
         Session session = factory.getCurrentSession();
         try {
-            Book book1 = new Book (title, author, date, genre, count);
+            Book book1 = new Book (title, author, date, genre, count,borrowedTimes);
             session.beginTransaction();
             session.save(book1);
             session.getTransaction().commit();
@@ -106,7 +106,7 @@ public class BookAccess {
 
     }
 
-    private void queryBook(){
+    private void filterByReleaseDate(int date) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -120,40 +120,51 @@ public class BookAccess {
 
             session.beginTransaction();
 
-            List<Book> books = session.createQuery("from Book").list();
-            displayBooks( books);
+            String s = "from Book s where s.releaseDate="+date;
 
-
-            books = session.createQuery("from Book s where s.title='aaa'").list();
-
-            // display the students
-            System.out.println("\n\nBooks who have the title of aaa");
+            List<Book> books = session.createQuery(s).list();
             displayBooks(books);
-
-
-            books = session.createQuery("from Book s where"
-                            + " s.title='Daffy' OR s.author='Duck'").list();
-
-            System.out.println("\n\nBooks who have the title of Daffy OR the author Duck");
-            displayBooks(books);
-
-
-            books = session.createQuery("from Book s where"
-                    + " s.genre LIKE '%edy'").list();
-
-            System.out.println("\n\nBooks whose genre ends with edy");
-            displayBooks(books);
-
-
-            // commit the transaction
             session.getTransaction().commit();
 
-        }
-        finally {
+        } finally {
             factory.close();
         }
-
     }
+
+    private void filterByString(String column, String string) {
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
+
+        // create session
+        Session session = factory.getCurrentSession();
+
+        try {
+
+            session.beginTransaction();
+
+            String s = "";
+
+            switch (column){
+                case "author": s = "from Book s where s.author="+"'"+string+"'"; break;
+                case "title": s = "from Book s where s.title="+"'"+string+"'"; break;
+                case "genre": s = "from Book s where s.genre="+"'"+string+"'"; break;
+            }
+
+
+            List<Book> books = session.createQuery(s).list();
+            displayBooks(books);
+            session.getTransaction().commit();
+
+        } finally {
+            factory.close();
+        }
+    }
+
+
+
     private static void displayBooks(List<Book> books) {
         for (Book b : books) {
             System.out.println(b);
@@ -164,6 +175,7 @@ public class BookAccess {
         BookAccess b = new BookAccess();
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
+        b.filterByReleaseDate(0);
     }
 
 

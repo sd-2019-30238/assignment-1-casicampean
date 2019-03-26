@@ -1,5 +1,6 @@
 package bussinessLogic;
 
+import models.Account;
 import models.Book;
 
 import java.util.ArrayList;
@@ -8,14 +9,35 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private Payment payment;
+    private PaymentPlan paymentPlan;
+    private Account acount;
+    private ArrayList<Book>books;
 
-    public User(int id, String username, String password, Payment payment) {
+
+
+    public User(int id, String username, String password, PaymentPlan payment) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.payment = payment;
+        this.paymentPlan = payment;
     }
+
+    public void borrowBook(){
+
+    }
+
+    public void returnBook(){
+
+    }
+
+    public void createAccount(){
+
+    }
+
+    public void choosePayment(){
+
+    }
+
 
     public int getId() {
         return id;
@@ -41,12 +63,12 @@ public class User {
         this.password = password;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public PaymentPlan getPayment() {
+        return paymentPlan;
     }
 
-    public void setPayment(Payment payment) {
-        this.payment = payment;
+    public void setPayment(PaymentPlan payment) {
+        this.paymentPlan = payment;
     }
 
     public ArrayList<Book> getBooks() {
@@ -57,11 +79,23 @@ public class User {
         this.books = books;
     }
 
-    private ArrayList<Book>books;
 
 
+    public PaymentPlan getPaymentPlan() {
+        return paymentPlan;
+    }
 
+    public void setPaymentPlan(PaymentPlan paymentPlan) {
+        this.paymentPlan = paymentPlan;
+    }
 
+    public Account getAcount() {
+        return acount;
+    }
+
+    public void setAcount(Account acount) {
+        this.acount = acount;
+    }
 
 
 }

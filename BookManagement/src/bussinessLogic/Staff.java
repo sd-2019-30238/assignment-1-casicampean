@@ -1,9 +1,28 @@
 package bussinessLogic;
 
+import models.Account;
+import models.Book;
+
 public class Staff  {
     private int id;
     private String username;
     private String password;
+    private Account account;
+
+
+    public void validatePayment(){
+
+    }
+    public void validateReturn(){
+
+    }
+    public void joinUserWitingList(User user, Book book){
+
+    }
+
+    public void createAccount(){
+
+    }
 
 
     public int getId() {
@@ -29,4 +48,8 @@ public class Staff  {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
+
 }
