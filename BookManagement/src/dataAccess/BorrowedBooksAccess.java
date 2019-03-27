@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 public class BorrowedBooksAccess {
 
-    private void addBBook(int userID, String account, int bookID, String book){
+    public void addBBook(int userID, String account, int bookID, String book){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -25,7 +25,7 @@ public class BorrowedBooksAccess {
         }
     }
 
-    private BorrowedBooks selectBBook(int id){
+    public BorrowedBooks selectBBook(int id){
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -49,7 +49,7 @@ public class BorrowedBooksAccess {
         }
 
     }
-    private void deleteBook(int id){
+    public void deleteBBook(int id){
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -64,9 +64,7 @@ public class BorrowedBooksAccess {
             session.beginTransaction();
 
             BorrowedBooks myBook = session.get(BorrowedBooks.class, id);
-
             session.delete(myBook);
-
             session.getTransaction().commit();
 
         }

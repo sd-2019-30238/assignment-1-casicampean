@@ -1,5 +1,6 @@
 package bussinessLogic;
 
+import dataAccess.AccountAccess;
 import models.Account;
 import models.Book;
 
@@ -8,6 +9,8 @@ public class Staff  {
     private String username;
     private String password;
     private Account account;
+    private AccountAccess accountAccess;
+    private Library library;
 
 
     public void validatePayment(){
@@ -16,12 +19,9 @@ public class Staff  {
     public void validateReturn(){
 
     }
-    public void joinUserWitingList(User user, Book book){
-
-    }
-
     public void createAccount(){
-
+        accountAccess.addAccount(this.username,this.password,"staff");
+        library.addStaff(this);
     }
 
 

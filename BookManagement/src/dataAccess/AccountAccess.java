@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AccountAccess {
 
-    private void addAccount(String username, String password, String type){
+    public void addAccount(String username, String password, String type){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -26,7 +26,7 @@ public class AccountAccess {
         }
     }
 
-    private Account readAccount(int id){
+    public Account readAccount(int id){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -44,7 +44,7 @@ public class AccountAccess {
 
     }
 
-    private void updateAccount(int id){
+    public void updateAccount(int id, String payment){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -54,14 +54,14 @@ public class AccountAccess {
 
             session.beginTransaction();
             Account account = session.get(Account.class, id);
-            account.setPayment("1 month");
+            account.setPayment(payment);
             session.getTransaction().commit();
         }finally {
             factory.close();
         }
     }
 
-    private void deleteAccount(int id){
+    public void deleteAccount(int id){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -77,7 +77,8 @@ public class AccountAccess {
             factory.close();
         }
     }
-    private void queryAccount(){
+
+    public void queryAccount(){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -98,7 +99,7 @@ public class AccountAccess {
         }
     }
 
-    private static void displayAccounts(List<Account> accounts) {
+    public static void displayAccounts(List<Account> accounts) {
         for (Account b : accounts) {
             System.out.println(b);
         }
@@ -110,7 +111,7 @@ public class AccountAccess {
         Account b = new Account();
         //a.addAccount("acc","acc","user");
         //a.queryAccount();
-        a.updateAccount(1);
+        a.updateAccount(1, "1 month");
         b = a.readAccount(1);
         System.out.println(b.toString());
 

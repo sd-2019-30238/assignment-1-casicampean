@@ -6,13 +6,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookAccess {
 
 
 
-    private void addBook(String title, String author, int date, String genre, int count, int borrowedTimes) {
+    public void addBook(String title, String author, int date, String genre, int count, int borrowedTimes) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Book.class)
@@ -30,7 +31,7 @@ public class BookAccess {
         }
     }
 
-    private Book selectBook(int id){
+    public Book selectBook(int id){
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -55,7 +56,7 @@ public class BookAccess {
 
     }
 
-    private void updateBook(int id, int count){
+    public void updateBook(int id, int count, int times){
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -70,6 +71,7 @@ public class BookAccess {
             session.beginTransaction();
             Book myBook = session.get(Book.class, id);
             myBook.setCount(count);
+            myBook.setBorrowedTimes(times);
             session.getTransaction().commit();
 
         }
@@ -79,7 +81,8 @@ public class BookAccess {
 
     }
 
-    private void deleteBook(int id){
+
+    public void deleteBook(int id){
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -106,7 +109,7 @@ public class BookAccess {
 
     }
 
-    private void filterByReleaseDate(int date) {
+    public ArrayList<Book> filterByReleaseDate(int date) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -122,16 +125,18 @@ public class BookAccess {
 
             String s = "from Book s where s.releaseDate="+date;
 
-            List<Book> books = session.createQuery(s).list();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery(s).list();
             displayBooks(books);
             session.getTransaction().commit();
+
+            return books;
 
         } finally {
             factory.close();
         }
     }
 
-    private void filterByString(String column, String string) {
+    public ArrayList<Book> filterByString(String column, String string) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -154,9 +159,36 @@ public class BookAccess {
             }
 
 
-            List<Book> books = session.createQuery(s).list();
+            //ArrayList<Book> books = session.createQuery(s).list();
+            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
             displayBooks(books);
             session.getTransaction().commit();
+
+            return  books;
+
+        } finally {
+            factory.close();
+        }
+    }
+
+    public ArrayList<Book> getAllBooks() {
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
+
+        // create session
+        Session session = factory.getCurrentSession();
+
+        try {
+
+            session.beginTransaction();
+            ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book").list();
+            displayBooks(books);
+            session.getTransaction().commit();
+
+            return  books;
 
         } finally {
             factory.close();
@@ -165,7 +197,7 @@ public class BookAccess {
 
 
 
-    private static void displayBooks(List<Book> books) {
+    public static void displayBooks(List<Book> books) {
         for (Book b : books) {
             System.out.println(b);
         }
@@ -175,7 +207,7 @@ public class BookAccess {
         BookAccess b = new BookAccess();
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
-        b.filterByReleaseDate(0);
+        b.getAllBooks();
     }
 
 
