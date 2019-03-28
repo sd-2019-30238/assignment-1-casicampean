@@ -2,12 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59729579-d49a-4199-854a-c62ef95093d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/Library.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManagement/bussinessLogic/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/dataAccess/BookAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManagement/dataAccess/BookAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/dataAccess/BorrowedBooksAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManagement/dataAccess/BorrowedBooksAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/ListBorrowedBooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/ListLibraryBooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/ListUserBooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Login$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Login$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/PaymentUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/PaymentUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/PaymentUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/PaymentUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Register$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Register$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BookManagement/presentation/Register.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bussinessLogic/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussinessLogic/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussinessLogic/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussinessLogic/Staff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bussinessLogic/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussinessLogic/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataAccess/AccountAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/AccountAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataAccess/BookAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/BookAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/BorrowedBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BorrowedBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListBorrowedBooks.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListBorrowedBooks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListLibraryBooks.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListLibraryBooks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListUserBooks.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/ListUserBooks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Login.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/PaymentUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/PaymentUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Register.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/Register.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,42 +50,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bussinessLogic/User.java">
+        <entry file="file://$PROJECT_DIR$/src/presentation/ShowAllAccounts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="260">
+              <caret line="77" column="46" lean-forward="true" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#628#629#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
-                <element signature="e#847#848#0" expanded="true" />
-                <element signature="e#823#824#0" expanded="true" />
-                <element signature="e#845#846#0" expanded="true" />
-                <element signature="e#1100#1101#0" expanded="true" />
-                <element signature="e#1161#1162#0" expanded="true" />
-                <element signature="e#1227#1228#0" expanded="true" />
-                <element signature="e#1315#1316#0" expanded="true" />
-                <element signature="e#1381#1382#0" expanded="true" />
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1542#1543#0" expanded="true" />
-                <element signature="e#1635#1636#0" expanded="true" />
-                <element signature="e#1704#1705#0" expanded="true" />
-                <element signature="e#1789#1790#0" expanded="true" />
-                <element signature="e#1857#1858#0" expanded="true" />
-                <element signature="e#1939#1940#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataAccess/BookAccess.java">
+        <entry file="file://$PROJECT_DIR$/src/presentation/StaffMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+            <state relative-caret-position="192">
+              <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/ShowLogin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="119" column="42" selection-start-line="119" selection-start-column="42" selection-end-line="119" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/UserMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-539">
+              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/ShowAllBooks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2017">
+              <caret line="140" selection-start-line="140" selection-end-line="140" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/presentation/FilterByStaff.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/ShowBorrowedHistory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,111 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dataAccess/AccountAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="46" column="29" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/BorrowedBooks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bussinessLogic/Staff.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bussinessLogic/Library.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="105" column="39" lean-forward="true" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#454#455#0" expanded="true" />
-                <element signature="e#486#487#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#947#948#0" expanded="true" />
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
-                <element signature="e#884#885#0" expanded="true" />
-                <element signature="e#1255#1256#0" expanded="true" />
-                <element signature="e#1272#1273#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#857#858#0" expanded="true" />
-                <element signature="e#883#884#0" expanded="true" />
-                <element signature="e#3273#3274#0" expanded="true" />
-                <element signature="e#3359#3360#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="26" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bussinessLogic/PaymentPlan.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="23" />
-              <folding>
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="e#672#673#0" expanded="true" />
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#773#774#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-694">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="-646">
+              <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -208,19 +176,34 @@
         <option value="$PROJECT_DIR$/src/models/Book.java" />
         <option value="$PROJECT_DIR$/src/presentation/Payment.form" />
         <option value="$PROJECT_DIR$/src/presentation/Payment.java" />
-        <option value="$PROJECT_DIR$/src/models/BorrowedBooks.java" />
-        <option value="$PROJECT_DIR$/src/dataAccess/AccountAccess.java" />
-        <option value="$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java" />
-        <option value="$PROJECT_DIR$/src/dataAccess/BookAccess.java" />
         <option value="$PROJECT_DIR$/src/bussinessLogic/Staff.java" />
-        <option value="$PROJECT_DIR$/src/bussinessLogic/User.java" />
+        <option value="$PROJECT_DIR$/src/presentation/showBorrowedBooks.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ListLibraryBooks.form" />
+        <option value="$PROJECT_DIR$/src/dataAccess/ReflectionExample.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/Reflection.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/AccountAccess.java" />
+        <option value="$PROJECT_DIR$/src/models/BorrowedBooks.java" />
         <option value="$PROJECT_DIR$/src/bussinessLogic/Library.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ChoosePaymentPlan.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowRegister.java" />
+        <option value="$PROJECT_DIR$/src/bussinessLogic/User.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowBorrowedBooks.java" />
+        <option value="$PROJECT_DIR$/src/dataAccess/BookAccess.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowAllBooks.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowBorrowedHistory.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowAllAccounts.java" />
+        <option value="$PROJECT_DIR$/src/presentation/UserMenu.java" />
+        <option value="$PROJECT_DIR$/src/presentation/ShowLogin.java" />
+        <option value="$PROJECT_DIR$/src/presentation/StaffMenu.java" />
+        <option value="$PROJECT_DIR$/src/presentation/FilterByStaff.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
+    <option name="x" value="346" />
+    <option name="y" value="65" />
+    <option name="width" value="854" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -231,6 +214,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,12 +260,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553636266625" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="174" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553804155916" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -306,20 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BookAccess">
-    <configuration name="AccountAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dataAccess.AccountAccess" />
-      <module name="BookManagement" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataAccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.StaffMenu">
     <configuration name="BookAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dataAccess.BookAccess" />
       <module name="BookManagement" />
@@ -333,12 +304,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BorrowedBooksAccess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dataAccess.BorrowedBooksAccess" />
+    <configuration name="ShowAllAccounts" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presentation.ShowAllAccounts" />
       <module name="BookManagement" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataAccess.*" />
+          <option name="PATTERN" value="presentation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -346,12 +317,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dataAccess.DBConnection" />
+    <configuration name="ShowBorrowedBooks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presentation.ShowBorrowedBooks" />
       <module name="BookManagement" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataAccess.*" />
+          <option name="PATTERN" value="presentation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -359,29 +330,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+    <configuration name="StaffMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presentation.StaffMenu" />
       <module name="BookManagement" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="presentation.UserMenu" />
+      <module name="BookManagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.DBConnection" />
+      <item itemvalue="Application.UserMenu" />
+      <item itemvalue="Application.ShowBorrowedBooks" />
       <item itemvalue="Application.BookAccess" />
-      <item itemvalue="Application.AccountAccess" />
-      <item itemvalue="Application.BorrowedBooksAccess" />
+      <item itemvalue="Application.ShowAllAccounts" />
+      <item itemvalue="Application.StaffMenu" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StaffMenu" />
+        <item itemvalue="Application.ShowAllAccounts" />
         <item itemvalue="Application.BookAccess" />
-        <item itemvalue="Application.BorrowedBooksAccess" />
-        <item itemvalue="Application.AccountAccess" />
-        <item itemvalue="Application.DBConnection" />
+        <item itemvalue="Application.UserMenu" />
+        <item itemvalue="Application.ShowBorrowedBooks" />
       </list>
     </recent_temporary>
   </component>
@@ -401,7 +389,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29954615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21709532" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -409,9 +397,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2487725" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32405892" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35679215" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -512,43 +500,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Login.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Register.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/PaymentUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/PaymentUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ListBorrowedBooks.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ListBorrowedBooks.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ListUserBooks.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ListUserBooks.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ListLibraryBooks.form">
-      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ListLibraryBooks.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -570,10 +526,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bussinessLogic/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ListBorrowedBooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ListBorrowedBooks.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Login.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/PaymentUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/PaymentUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Register.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ListLibraryBooks.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ChoosePaymentPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bussinessLogic/PaymentPlan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="102">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="29" />
           <folding>
             <element signature="e#645#646#0" expanded="true" />
             <element signature="e#672#673#0" expanded="true" />
@@ -587,20 +626,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataAccess/AccountAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/bussinessLogic/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="29" />
+        <state relative-caret-position="46">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/Reflection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -609,15 +648,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/BorrowedBooks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="17">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Book.java">
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/BorrowedBooksAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-694">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="144">
+          <caret line="109" column="73" selection-start-line="109" selection-start-column="73" selection-end-line="109" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowBorrowedBooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -626,83 +675,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dataAccess/BookAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state relative-caret-position="285">
+          <caret line="221" column="9" lean-forward="true" selection-start-line="211" selection-start-column="8" selection-end-line="221" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bussinessLogic/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1227#1228#0" expanded="true" />
-            <element signature="e#1315#1316#0" expanded="true" />
-            <element signature="e#1381#1382#0" expanded="true" />
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#1635#1636#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1789#1790#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1939#1940#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bussinessLogic/Library.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="105" column="39" lean-forward="true" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+        <state relative-caret-position="176">
+          <caret line="71" column="30" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3359#3360#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bussinessLogic/Staff.java">
+    <entry file="file://$PROJECT_DIR$/src/dataAccess/AccountAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        <state relative-caret-position="-646">
+          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowBorrowedHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowAllAccounts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="77" column="46" lean-forward="true" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="119" column="42" selection-start-line="119" selection-start-column="42" selection-end-line="119" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/UserMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-539">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/ShowAllBooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2017">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/StaffMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/FilterByStaff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

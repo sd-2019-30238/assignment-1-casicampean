@@ -16,11 +16,21 @@ public class Library {
     private ArrayList<Staff> staff;
     private ArrayList<Book>books;
     private ArrayList<Book>borrowedBooks;
-    private HashMap<Book,ArrayList<User>> waitingList = new HashMap<>();
+    private HashMap<Book,ArrayList<User>> waitingList;
     private BookAccess bookAccess;
     private AccountAccess accountAccess;
     private BorrowedBooksAccess borrowedTable;
-    private int totalSum = 0;
+    private static int totalSum = 0;
+
+    public Library(){
+        this.staff = new ArrayList<>();
+        this.books = new ArrayList<>();
+        this.borrowedBooks = new ArrayList<>();
+        this.waitingList = new HashMap<>();
+        this.bookAccess = new BookAccess();
+        this.accountAccess = new AccountAccess();
+        this.borrowedTable = new BorrowedBooksAccess();
+    }
 
 
     public ArrayList<Book> filterByReleaseDate(int date){
@@ -39,6 +49,9 @@ public class Library {
         return bookAccess.getAllBooks();
     }
 
+    public ArrayList<BorrowedBooks> getBorrowedHistory(){
+        return borrowedTable.selectAll();
+    }
 
     public ArrayList<Book> filterByGenre(String genre){
         return bookAccess.filterByString("genre", genre);
@@ -97,7 +110,7 @@ public class Library {
     public void assignNext(Book book){
         User user = waitingList.get(book).get(0);
         waitingList.get(book).remove(0);
-        user.borrowBook(book);
+        validateBorrow(user,book);
     }
 
     public void validatePaymentPlan(User user, String type){
@@ -109,6 +122,29 @@ public class Library {
 
     public void validateAccount(User user){
         accountAccess.addAccount(user.getUsername(),user.getPassword(),"user");
+    }
+
+    public HashMap<Book, ArrayList<User>> getWaitingList() {
+        return waitingList;
+    }
+
+    public void setWaitingList(HashMap<Book, ArrayList<User>> waitingList) {
+        this.waitingList = waitingList;
+    }
+
+    public static void main(String[] args) {
+        Library l =new Library();
+        BookAccess bbb =new BookAccess();
+        Book book = bbb.selectBook(6);
+        AccountAccess aaa= new AccountAccess();
+        Account user = aaa.readAccount(1);
+        User user2 = new User("aaa","bbb");
+        user2.setId(1);
+
+
+        l.validatePaymentPlan(user2,"6 months");
+
+
     }
 
 }

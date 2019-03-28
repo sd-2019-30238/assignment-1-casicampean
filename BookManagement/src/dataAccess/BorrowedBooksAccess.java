@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
+
 public class BorrowedBooksAccess {
 
     public void addBBook(int userID, String account, int bookID, String book){
@@ -25,30 +27,45 @@ public class BorrowedBooksAccess {
         }
     }
 
-    public BorrowedBooks selectBBook(int id){
-        // create session factory
+    public ArrayList<BorrowedBooks> selectAll(){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
                 .buildSessionFactory();
-
-        // create session
         Session session = factory.getCurrentSession();
-
         try {
 
             session.beginTransaction();
-            BorrowedBooks myBook = session.get(BorrowedBooks.class, id);
+            ArrayList<BorrowedBooks> books = (ArrayList<BorrowedBooks>) session.createQuery("from BorrowedBooks").list();
             session.getTransaction().commit();
-
-            return myBook;
-
-        }
-        finally {
+            displayBooks(books);
+            return books;
+        }finally{
             factory.close();
         }
 
     }
+
+    public ArrayList<String> getBooksByUser(String username){
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(BorrowedBooks.class)
+                .buildSessionFactory();
+        Session session = factory.getCurrentSession();
+        try {
+
+            session.beginTransaction();
+            ArrayList<String> books = (ArrayList<String>) session.createQuery("select book from BorrowedBooks where username = '"+username+"'").list();
+            session.getTransaction().commit();
+            //displayBooks(books);
+            return books;
+        }finally{
+            factory.close();
+        }
+
+    }
+
+
     public void deleteBBook(int id){
         // create session factory
         SessionFactory factory = new Configuration()
@@ -73,12 +90,26 @@ public class BorrowedBooksAccess {
         }
 
     }
+    public static void displayBooks(ArrayList<BorrowedBooks> books) {
+        for (BorrowedBooks b : books) {
+            System.out.println(b);
+        }
+    }
 
     public static void main(String[] args) {
         BorrowedBooksAccess b = new BorrowedBooksAccess();
         b.addBBook(1,"aa",2,"ccc");
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
+        ArrayList<String> s = b.getBooksByUser("aa");
+        /*for(String ss:s){
+            System.out.println(ss);
+        }*/
+
+        BorrowedBooksAccess borrowedBooksAccess = new BorrowedBooksAccess();
+        ArrayList<String> ssss = borrowedBooksAccess.getBooksByUser("cccc");
+        System.out.println(ssss.size());
     }
+
 
 }

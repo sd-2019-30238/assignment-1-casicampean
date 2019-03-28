@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -185,10 +186,10 @@ public class BookAccess {
 
             session.beginTransaction();
             ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book").list();
-            displayBooks(books);
+           // displayBooks(books);
             session.getTransaction().commit();
 
-            return  books;
+            return books;
 
         } finally {
             factory.close();
@@ -197,7 +198,7 @@ public class BookAccess {
 
 
 
-    public static void displayBooks(List<Book> books) {
+    public static void displayBooks(ArrayList<Book> books) {
         for (Book b : books) {
             System.out.println(b);
         }
@@ -207,8 +208,25 @@ public class BookAccess {
         BookAccess b = new BookAccess();
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
-        b.getAllBooks();
+       // b.getAllBooks();
+        ArrayList<Book>boo = b.getAllBooks();
+        ArrayList<Integer>s =new ArrayList<>();
+        for(Book bb:boo){
+            s.add(bb.getId());
+            System.out.println(bb.getId());
+        }
+        for(Integer i:s){
+            if(i.equals(2)){
+                System.out.println("true");
+            }
+        }
+        //displayBooks(boo);
+
+
+
     }
+
+
 
 
 

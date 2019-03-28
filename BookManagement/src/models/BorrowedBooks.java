@@ -30,6 +30,17 @@ public class BorrowedBooks {
 
     }
 
+    @Override
+    public String toString() {
+        return "BorrowedBooks{" +
+                "id=" + id +
+                ", userID=" + userID +
+                ", account='" + account + '\'' +
+                ", bookID=" + bookID +
+                ", book='" + book + '\'' +
+                '}';
+    }
+
     public int getUserID() {
         return userID;
     }

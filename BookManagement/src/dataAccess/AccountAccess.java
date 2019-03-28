@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccountAccess {
@@ -78,7 +79,7 @@ public class AccountAccess {
         }
     }
 
-    public void queryAccount(){
+    public ArrayList<Account> queryAccount(){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
@@ -88,12 +89,62 @@ public class AccountAccess {
 
             session.beginTransaction();
 
-            List<Account> accounts = session.createQuery("from Account").list();
+            ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery("from Account").list();
 
             displayAccounts(accounts);
 
 
             session.getTransaction().commit();
+
+            return accounts;
+        }finally {
+            factory.close();
+        }
+    }
+    public ArrayList<Account> queryLogin(String username, String password){
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Account.class)
+                .buildSessionFactory();
+        Session session = factory.getCurrentSession();
+        try{
+
+            session.beginTransaction();
+
+            String s = "from Account s where s.username="+"'"+username+"' and s.password= '"+password+"'";
+
+            ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery(s).list();
+
+            displayAccounts(accounts);
+
+
+            session.getTransaction().commit();
+
+            return accounts;
+        }finally {
+            factory.close();
+        }
+    }
+    public ArrayList<Account> queryRegister(String username){
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Account.class)
+                .buildSessionFactory();
+        Session session = factory.getCurrentSession();
+        try{
+
+            session.beginTransaction();
+
+            String s = "from Account s where s.username="+"'"+username+"'";
+
+            ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery(s).list();
+
+            displayAccounts(accounts);
+
+
+            session.getTransaction().commit();
+
+            return accounts;
         }finally {
             factory.close();
         }
@@ -113,8 +164,8 @@ public class AccountAccess {
         //a.queryAccount();
         a.updateAccount(1, "1 month");
         b = a.readAccount(1);
-        System.out.println(b.toString());
-
+        ArrayList<Account>aaa=a.queryRegister("ccc");
+        System.out.println(aaa.size());
 
     }
 }

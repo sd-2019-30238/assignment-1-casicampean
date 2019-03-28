@@ -13,12 +13,13 @@ public class User {
     private ArrayList<Book>books;
     private Library library;
 
-    public User(int id, String username, String password, PaymentPlan payment) {
-        this.id = id;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.paymentPlan = payment;
+        this.books = new ArrayList<>();
+        this.library = new Library();
     }
+    public User(){}
 
     public void borrowBook(Book book){
         library.validateBorrow(this, book);
