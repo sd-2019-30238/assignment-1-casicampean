@@ -38,7 +38,6 @@ public class BorrowedBooksAccess {
             session.beginTransaction();
             ArrayList<BorrowedBooks> books = (ArrayList<BorrowedBooks>) session.createQuery("from BorrowedBooks").list();
             session.getTransaction().commit();
-            displayBooks(books);
             return books;
         }finally{
             factory.close();
@@ -46,7 +45,7 @@ public class BorrowedBooksAccess {
 
     }
 
-    public ArrayList<String> getBooksByUser(String username){
+    public ArrayList<String> getBooksByUser(int id){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -55,9 +54,9 @@ public class BorrowedBooksAccess {
         try {
 
             session.beginTransaction();
-            ArrayList<String> books = (ArrayList<String>) session.createQuery("select book from BorrowedBooks where username = '"+username+"'").list();
+            ArrayList<String> books = (ArrayList<String>) session.createQuery("select book from BorrowedBooks where userID = "+id).list();
             session.getTransaction().commit();
-            //displayBooks(books);
+
             return books;
         }finally{
             factory.close();
@@ -66,34 +65,22 @@ public class BorrowedBooksAccess {
     }
 
 
-    public void deleteBBook(int id){
-        // create session factory
+    public void deleteByBookId(int id){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
                 .buildSessionFactory();
-
-        // create session
         Session session = factory.getCurrentSession();
-
         try {
 
             session.beginTransaction();
-
-            BorrowedBooks myBook = session.get(BorrowedBooks.class, id);
-            session.delete(myBook);
+            session.createQuery("delete from BorrowedBooks where bookID="+id).executeUpdate();
             session.getTransaction().commit();
 
-        }
-        finally {
+        }finally{
             factory.close();
         }
 
-    }
-    public static void displayBooks(ArrayList<BorrowedBooks> books) {
-        for (BorrowedBooks b : books) {
-            System.out.println(b);
-        }
     }
 
     public static void main(String[] args) {
@@ -101,14 +88,14 @@ public class BorrowedBooksAccess {
         b.addBBook(1,"aa",2,"ccc");
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
-        ArrayList<String> s = b.getBooksByUser("aa");
+        //ArrayList<String> s = b.getBooksByUser("aa");
         /*for(String ss:s){
             System.out.println(ss);
         }*/
 
         BorrowedBooksAccess borrowedBooksAccess = new BorrowedBooksAccess();
-        ArrayList<String> ssss = borrowedBooksAccess.getBooksByUser("cccc");
-        System.out.println(ssss.size());
+        borrowedBooksAccess.deleteByBookId(4);
+
     }
 
 

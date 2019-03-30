@@ -1,5 +1,10 @@
 package presentation;
 
+import bussinessLogic.Staff;
+import dataAccess.BookAccess;
+import dataAccess.Reflection;
+import models.Book;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class FilterByStaff {
 
@@ -22,24 +28,12 @@ public class FilterByStaff {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    FilterByStaff window = new FilterByStaff();
-                    window.initialize();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
 
     /**
      * Create the application.
      */
-    public void show() {
+    public void show(){
         try {
             FilterByStaff window = new FilterByStaff();
             window.initialize();
@@ -47,6 +41,7 @@ public class FilterByStaff {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     /**
@@ -59,45 +54,49 @@ public class FilterByStaff {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        JPanel panel = new JPanel();
-        panel.setBackground(new Color(0, 0, 51));
-        panel.setBounds(74, 48, 329, 163);
-        frame.getContentPane().add(panel);
-        panel.setLayout(null);
-
         textField = new JTextField();
-        textField.setBounds(111, 43, 169, 20);
-        panel.add(textField);
+        textField.setBounds(167, 252, 223, 20);
+        frame.getContentPane().add(textField);
         textField.setColumns(10);
 
-        JLabel lblLabel = new JLabel("Label:");
-        lblLabel.setForeground(new Color(255, 255, 255));
-        lblLabel.setBounds(22, 46, 79, 14);
-        panel.add(lblLabel);
+        JLabel lblDateauthortitlegenre = new JLabel("Date/Author/Title/Genre:");
+        lblDateauthortitlegenre.setForeground(Color.WHITE);
+        lblDateauthortitlegenre.setBounds(17, 255, 140, 14);
+        frame.getContentPane().add(lblDateauthortitlegenre);
 
-        JButton btnOk = new JButton("Ok");
-        btnOk.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-        btnOk.setBounds(123, 104, 89, 23);
-        panel.add(btnOk);
+        JLabel lblIncorrectdoesntExists = new JLabel("Incorrect/Doesn't exists");
+        lblIncorrectdoesntExists.setForeground(Color.RED);
+        lblIncorrectdoesntExists.setBounds(172, 234, 140, 14);
+        frame.getContentPane().add(lblIncorrectdoesntExists);
+        lblIncorrectdoesntExists.setVisible(false);
 
-        JLabel lblIncorrect = new JLabel("Incorrect");
-        lblIncorrect.setForeground(new Color(204, 0, 0));
-        lblIncorrect.setBounds(138, 74, 46, 14);
-        panel.add(lblIncorrect);
-
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 11, 521, 163);
-        frame.getContentPane().add(scrollPane);
 
         table = new JTable();
-        scrollPane.setViewportView(table);
+
+
+        BookAccess bookAccess = new BookAccess();
+        ArrayList<Book> books = bookAccess.getAllBooks();
+        table = Reflection.retrieveProperties(books,7);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(10, 11, 521, 163);
+        frame.getContentPane().add(scrollPane);
 
         JButton btnByReleaseDate = new JButton("By Release Date");
         btnByReleaseDate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ArrayList<Book> books = bookAccess.filterByReleaseDate(Integer.parseInt(textField.getText()));
+                if(books.size() > 0){
+                    lblIncorrectdoesntExists.setVisible(false);
+                    table = Reflection.retrieveProperties(books, 7);
+                    JScrollPane scrollPane = new JScrollPane(table);
+                    scrollPane.setBounds(10, 11, 521, 163);
+                    frame.getContentPane().add(scrollPane);
+                }
+                else
+                {
+                    lblIncorrectdoesntExists.setVisible(true);
+                    textField.setText("");
+                }
             }
         });
         btnByReleaseDate.setBounds(39, 200, 111, 23);
@@ -106,7 +105,22 @@ public class FilterByStaff {
         JButton btnByAuthor = new JButton("By Author");
         btnByAuthor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                ArrayList<Book> books = bookAccess.filterByString("author",textField.getText());
+                if(books.size() > 0){
+                    lblIncorrectdoesntExists.setVisible(false);
+                    table = Reflection.retrieveProperties(books, 7);
+                    JScrollPane scrollPane = new JScrollPane(table);
+                    scrollPane.setBounds(10, 11, 521, 163);
+                    frame.getContentPane().add(scrollPane);
+                }
+                else
+                {
+                    lblIncorrectdoesntExists.setVisible(true);
+                    textField.setText("");
+                }
             }
+
         });
         btnByAuthor.setBounds(174, 200, 99, 23);
         frame.getContentPane().add(btnByAuthor);
@@ -114,6 +128,20 @@ public class FilterByStaff {
         JButton btnByTitle = new JButton("By Title");
         btnByTitle.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                ArrayList<Book> books = bookAccess.filterByString("title",textField.getText());
+                if(books.size() > 0){
+                    lblIncorrectdoesntExists.setVisible(false);
+                    table = Reflection.retrieveProperties(books, 7);
+                    JScrollPane scrollPane = new JScrollPane(table);
+                    scrollPane.setBounds(10, 11, 521, 163);
+                    frame.getContentPane().add(scrollPane);
+                }
+                else
+                {
+                    lblIncorrectdoesntExists.setVisible(true);
+                    textField.setText("");
+                }
             }
         });
         btnByTitle.setBounds(291, 200, 99, 23);
@@ -122,6 +150,20 @@ public class FilterByStaff {
         JButton btnByGendre = new JButton("By gendre");
         btnByGendre.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                ArrayList<Book> books = bookAccess.filterByString("genre",textField.getText());
+                if(books.size() > 0){
+                    lblIncorrectdoesntExists.setVisible(false);
+                    table = Reflection.retrieveProperties(books, 7);
+                    JScrollPane scrollPane = new JScrollPane(table);
+                    scrollPane.setBounds(10, 11, 521, 163);
+                    frame.getContentPane().add(scrollPane);
+                }
+                else
+                {
+                    lblIncorrectdoesntExists.setVisible(true);
+                    textField.setText("");
+                }
             }
         });
         btnByGendre.setBounds(413, 200, 99, 23);
@@ -130,10 +172,15 @@ public class FilterByStaff {
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                StaffMenu staffMenu = new StaffMenu();
+                staffMenu.show();
             }
         });
-        btnBack.setBounds(219, 255, 89, 23);
+        btnBack.setBounds(423, 251, 89, 23);
         frame.getContentPane().add(btnBack);
+
+
     }
 
 }

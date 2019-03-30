@@ -159,10 +159,7 @@ public class BookAccess {
                 case "genre": s = "from Book s where s.genre="+"'"+string+"'"; break;
             }
 
-
-            //ArrayList<Book> books = session.createQuery(s).list();
             ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
-            displayBooks(books);
             session.getTransaction().commit();
 
             return  books;
@@ -173,6 +170,29 @@ public class BookAccess {
     }
 
     public ArrayList<Book> getAllBooks() {
+                // create session factory
+                SessionFactory factory = new Configuration()
+                        .configure("hibernate.cfg.xml")
+                        .addAnnotatedClass(Book.class)
+                        .buildSessionFactory();
+
+                // create session
+                Session session = factory.getCurrentSession();
+
+                try {
+
+                    session.beginTransaction();
+                    ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book").list();
+                    // displayBooks(books);
+                    session.getTransaction().commit();
+
+                    return books;
+
+        } finally {
+            factory.close();
+        }
+    }
+    public ArrayList<Book> getBooksByPopularity() {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -185,8 +205,8 @@ public class BookAccess {
         try {
 
             session.beginTransaction();
-            ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book").list();
-           // displayBooks(books);
+            ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book s where s.count > 3").list();
+            // displayBooks(books);
             session.getTransaction().commit();
 
             return books;
@@ -195,6 +215,54 @@ public class BookAccess {
             factory.close();
         }
     }
+
+    public int queryByID(int id) {
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
+
+        // create session
+        Session session = factory.getCurrentSession();
+
+        try {
+            String s = "from Book s where s.id="+id;
+            session.beginTransaction();
+            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
+            // displayBooks(books);
+            session.getTransaction().commit();
+
+            return books.size();
+
+        } finally {
+            factory.close();
+        }
+    }
+    public ArrayList<Book> queryByTitle(String title) {
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
+
+        // create session
+        Session session = factory.getCurrentSession();
+
+        try {
+            String s = "from Book s where s.title= '"+title+"'";
+            session.beginTransaction();
+            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
+            // displayBooks(books);
+            session.getTransaction().commit();
+
+            return books;
+
+        } finally {
+            factory.close();
+        }
+    }
+
 
 
 
@@ -209,17 +277,14 @@ public class BookAccess {
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
        // b.getAllBooks();
-        ArrayList<Book>boo = b.getAllBooks();
-        ArrayList<Integer>s =new ArrayList<>();
-        for(Book bb:boo){
-            s.add(bb.getId());
-            System.out.println(bb.getId());
-        }
-        for(Integer i:s){
-            if(i.equals(2)){
-                System.out.println("true");
-            }
-        }
+        ArrayList<Book>boo = b.getBooksByPopularity();
+
+        System.out.println(boo.size());
+        Book book = boo.get(0);
+        System.out.println(book.getId()+" "+book.getTitle());
+
+
+
         //displayBooks(boo);
 
 

@@ -1,8 +1,11 @@
 package presentation;
 
 import bussinessLogic.Library;
+import bussinessLogic.User;
+import dataAccess.AccountAccess;
 import dataAccess.BookAccess;
 import dataAccess.Reflection;
+import models.Account;
 import models.Book;
 
 import java.awt.EventQueue;
@@ -25,11 +28,13 @@ public class ShowAllBooks {
     private JFrame frame;
     private JTextField textField;
     private JTable table;
+    private int id;
+    private Library library;
 
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -41,11 +46,17 @@ public class ShowAllBooks {
                 }
             }
         });
+    }*/
+
+    public ShowAllBooks(int id, Library library){
+        this.id = id;
+        this.library = library;
     }
 
-    public  void show(){
+    public  void show(int id, Library library){
         try {
-            ShowAllBooks window = new ShowAllBooks();
+            this.id = id;
+            ShowAllBooks window = new ShowAllBooks(id, library);
             window.initialize();
             window.frame.setVisible(true);
         } catch (Exception e) {
@@ -78,8 +89,8 @@ public class ShowAllBooks {
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                UserMenu userMenu =  new UserMenu();
-                userMenu.show();
+                UserMenu userMenu =  new UserMenu(id,library);
+                userMenu.show(id,library);
                 frame.setVisible(false);
             }
         });
@@ -108,17 +119,20 @@ public class ShowAllBooks {
         textField.setColumns(10);
 
         JLabel lblWrongId = new JLabel("Wrong ID");
-        lblWrongId.setForeground(new Color(255, 0, 0));
         lblWrongId.setBounds(100, 46, 86, 14);
         panel.add(lblWrongId);
         lblWrongId.setVisible(false);
         panel.setVisible(false);
 
         table = new JTable();
-        Library library = new Library();
-        BookAccess b = new BookAccess();
         ArrayList<Book> books = library.getBooks();
         table = Reflection.retrieveProperties(books, 7);
+
+        JLabel lblDone = new JLabel("Done!");
+        lblDone.setForeground(Color.ORANGE);
+        lblDone.setBounds(89, 247, 46, 14);
+        frame.getContentPane().add(lblDone);
+        lblDone.setVisible(false);
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(10, 13, 561, 219);
@@ -129,26 +143,37 @@ public class ShowAllBooks {
             public void actionPerformed(ActionEvent arg0) {
                 panel.setVisible(true);
                 textField.setText("");
+                lblWrongId.setVisible(false);
+                lblDone.setVisible(false);
 
             }
         });
 
+
+
         btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 BookAccess bookAccess = new BookAccess();
-                ArrayList<Book>boo = b.getAllBooks();
-                ArrayList<Integer>s = new ArrayList<>();
+                AccountAccess accountAccess = new AccountAccess();
+                int size = bookAccess.queryByID(Integer.parseInt(textField.getText()));
+                if(size > 0){
+                    //correct id, so we can borrow it
+                    lblWrongId.setVisible(false);
+                    Account account = accountAccess.readAccount(id);
+                    User user = new User(account.getUsername(),account.getPassword());
+                    user.setId(account.getId());
+                    Book book = bookAccess.selectBook(Integer.parseInt(textField.getText()));
+                    library.validateBorrow(user,book);
+                    lblDone.setVisible(true);
+                    panel.setVisible(false);
 
-                for(Book bb:boo){
-                    s.add(bb.getId());
                 }
-                //verify the id
-                for(Integer i:s){
-                    if(i.equals(Integer.parseInt(textField.getText()))){
-                        panel.setVisible(false);
-                    }
+                else{
+                    lblWrongId.setVisible(true);
+                    textField.setText("");
+                    lblDone.setVisible(false);
                 }
-                lblWrongId.setVisible(true);
+
 
             }
         });

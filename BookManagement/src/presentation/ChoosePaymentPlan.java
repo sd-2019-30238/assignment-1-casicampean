@@ -1,5 +1,10 @@
 package presentation;
 
+import bussinessLogic.Library;
+import bussinessLogic.User;
+import dataAccess.AccountAccess;
+import models.Account;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -7,29 +12,29 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ChoosePaymentPlan {
 
     private JFrame frame;
+    private String username;
+    private Library library;
 
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ChoosePaymentPlan window = new ChoosePaymentPlan();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
+
+    public ChoosePaymentPlan(String username, Library library){
+        this.username = username;
+        this.library = library;
     }
-    public  void show(){
+
+    public  void show(String username, Library library){
         try {
-            ChoosePaymentPlan window = new ChoosePaymentPlan();
+            ChoosePaymentPlan window = new ChoosePaymentPlan(username, library);
             window.initialize();
             window.frame.setVisible(true);
         } catch (Exception e) {
@@ -88,15 +93,76 @@ public class ChoosePaymentPlan {
         lblPerYear.setBounds(335, 140, 74, 18);
         frame.getContentPane().add(lblPerYear);
 
+
+
+
+        //1 month
         JButton btnSet = new JButton("Set");
+        btnSet.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AccountAccess accountAccess = new AccountAccess();
+                ArrayList<Account> accounts = accountAccess.queryRegister(username);
+                if(accounts.size() > 0){
+                    Account account = accounts.get(0);
+                    User user = new User(account.getUsername(),account.getPassword());
+                    user.setId(account.getId());
+                    System.out.println("payment"+username);
+                    library.validatePaymentPlan(user,"1 month");
+
+                    frame.setVisible(false);
+                    ShowLogin showLogin = new ShowLogin(library);
+                    showLogin.show(library);
+
+                }
+
+            }
+            });
         btnSet.setBounds(39, 195, 74, 23);
         frame.getContentPane().add(btnSet);
 
+
+        //6 months
         JButton btnSet_1 = new JButton("Set");
+        btnSet_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AccountAccess accountAccess = new AccountAccess();
+                ArrayList<Account> accounts = accountAccess.queryRegister(username);
+                if(accounts.size() > 0){
+                    Account account = accounts.get(0);
+                    User user = new User(account.getUsername(),account.getPassword());
+                    user.setId(account.getId());
+                    System.out.println("payment"+username);
+                    library.validatePaymentPlan(user,"6 months");
+
+                    frame.setVisible(false);
+                    ShowLogin showLogin = new ShowLogin(library);
+                    showLogin.show(library);
+                }
+            }
+        });
         btnSet_1.setBounds(183, 195, 67, 23);
         frame.getContentPane().add(btnSet_1);
 
+
+        //1 year
         JButton btnSet_2 = new JButton("Set");
+        btnSet_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AccountAccess accountAccess = new AccountAccess();
+                ArrayList<Account> accounts = accountAccess.queryRegister(username);
+                if(accounts.size() > 0){
+                    Account account = accounts.get(0);
+                    User user = new User(account.getUsername(),account.getPassword());
+                    user.setId(account.getId());
+                    System.out.println("payment"+username);
+                    library.validatePaymentPlan(user,"1 year");
+
+                    frame.setVisible(false);
+                    ShowLogin showLogin = new ShowLogin(library);
+                    showLogin.show(library);
+                }
+            }
+        });
         btnSet_2.setBounds(335, 195, 74, 23);
         frame.getContentPane().add(btnSet_2);
     }

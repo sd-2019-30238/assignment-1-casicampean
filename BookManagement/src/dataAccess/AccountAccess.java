@@ -19,6 +19,9 @@ public class AccountAccess {
         try{
 
             Account account = new Account(username, password, type);
+            if(type.equals("staff")){
+                account.setPayment("free");
+            }
             session.beginTransaction();
             session.save(account);
             session.getTransaction().commit();
@@ -141,7 +144,6 @@ public class AccountAccess {
 
             displayAccounts(accounts);
 
-
             session.getTransaction().commit();
 
             return accounts;
@@ -164,7 +166,9 @@ public class AccountAccess {
         //a.queryAccount();
         a.updateAccount(1, "1 month");
         b = a.readAccount(1);
-        ArrayList<Account>aaa=a.queryRegister("ccc");
+        ArrayList<Account>aaa=a.queryRegister("cccccc");
+
+
         System.out.println(aaa.size());
 
     }

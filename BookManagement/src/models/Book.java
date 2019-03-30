@@ -51,7 +51,25 @@ public class Book {
                 ", gendre='" + genre + '\'' +
                 ", count=" + count + '\'' +
                 ", borrowedTimes=" + borrowedTimes +
-                '}';
+                '}'+"\n";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // TODO Auto-generated method stub
+        if (obj == null) return false;
+        if (!(obj instanceof Book))
+            return false;
+        if (obj == this)
+            return true;
+        return this.getId() == ((Book) obj).getId();
+    }
+    @Override
+    public int hashCode() {
+        // TODO Auto-generated method stub
+        int result=1;
+        result=31*result+((title == null) ? 0 : title.hashCode());
+        return result;
     }
 
     public int getId() {
@@ -66,40 +84,12 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(int releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public int getCount() {
         return count;
     }
 
     public void setCount(int count) {
         this.count = count;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public int getBorrowedTimes() {

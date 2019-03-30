@@ -8,6 +8,7 @@ import models.Book;
 import models.BorrowedBooks;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,13 +91,13 @@ public class Library {
                 waitingList.get(book).add(user);
             }
         }
-
     }
     public void validateReturn(User user, Book book){
         borrowedBooks.remove(book);
         user.removeFromBooks(book);
         book.setCount(book.getCount() + 1);
         bookAccess.updateBook(book.getId(),book.getCount(), book.getBorrowedTimes());
+        borrowedTable.deleteByBookId(book.getId());
         if(waitingList.containsKey(book)){
             if(!(waitingList.get(book).isEmpty())) {
                 assignNext(book);
@@ -106,7 +107,6 @@ public class Library {
             }
         }
     }
-
     public void assignNext(Book book){
         User user = waitingList.get(book).get(0);
         waitingList.get(book).remove(0);
@@ -124,25 +124,48 @@ public class Library {
         accountAccess.addAccount(user.getUsername(),user.getPassword(),"user");
     }
 
-    public HashMap<Book, ArrayList<User>> getWaitingList() {
-        return waitingList;
+    public int getUserID(String  username){
+        ArrayList<Account>acc = accountAccess.queryRegister(username);
+        int id = acc.get(0).getId();
+        return id;
     }
 
-    public void setWaitingList(HashMap<Book, ArrayList<User>> waitingList) {
-        this.waitingList = waitingList;
+    public HashMap<Book, ArrayList<User>> getWaitingList() {
+        return waitingList;
     }
 
     public static void main(String[] args) {
         Library l =new Library();
         BookAccess bbb =new BookAccess();
-        Book book = bbb.selectBook(6);
+        Book book = bbb.selectBook(2);
         AccountAccess aaa= new AccountAccess();
-        Account user = aaa.readAccount(1);
-        User user2 = new User("aaa","bbb");
-        user2.setId(1);
+        Account user = aaa.readAccount(2);
+        User user2 = new User(user.getUsername(),user.getPassword());
+        user2.setId(user.getId());
+
+        Account user3 = aaa.readAccount(2);
+        User user4 = new User(user3.getUsername(),user3.getPassword());
+        user2.setId(user3.getId());
+        //l.validateBorrow(user2,book);
+        l.validateBorrow(user2,book);
+        l.validateReturn(user4, book);
+        User u = l.getWaitingList().get(book).get(0);
+        System.out.println(u.getUsername());
+        System.out.println(l.getWaitingList().containsKey(book));
 
 
-        l.validatePaymentPlan(user2,"6 months");
+
+
+
+
+        //user2.setId(1);
+        //user2.createAccount();
+        //l.getUserID(user2);
+        //System.out.println(l.getUserID(user2.getUsername()));
+        //user2.choosePayment("1 month");
+
+
+        //l.validatePaymentPlan(user2,"6 months");
 
 
     }

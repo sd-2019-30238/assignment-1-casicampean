@@ -15,19 +15,7 @@ public class StaffMenu {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    StaffMenu window = new StaffMenu();
-                    window.initialize();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
 
     /**
      * Create the application.
@@ -68,6 +56,7 @@ public class StaffMenu {
 
                 FilterByStaff f = new FilterByStaff();
                 frame.setVisible(false);
+                f.show();
             }
         });
         btnFilterBy.setBounds(72, 152, 170, 23);

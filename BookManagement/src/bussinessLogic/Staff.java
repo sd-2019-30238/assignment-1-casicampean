@@ -12,7 +12,12 @@ public class Staff  {
     private AccountAccess accountAccess;
     private Library library;
 
-
+    public Staff(String username, String password){
+        this.username = username;
+        this.password = password;
+        this.accountAccess = new AccountAccess();
+        this.library = new Library();
+    }
     public void validatePayment(){
 
     }
@@ -23,7 +28,6 @@ public class Staff  {
         accountAccess.addAccount(this.username,this.password,"staff");
         library.addStaff(this);
     }
-
 
     public int getId() {
         return id;

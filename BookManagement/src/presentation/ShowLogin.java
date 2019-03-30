@@ -22,6 +22,7 @@ public class ShowLogin {
     private JFrame frame;
     private JTextField textField;
     private JPasswordField passwordField;
+    private Library library;
 
     /**
      * Launch the application.
@@ -30,7 +31,9 @@ public class ShowLogin {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ShowLogin window = new ShowLogin();
+                    Library library =  new Library();
+                    ShowLogin window = new ShowLogin(library);
+                    window.initialize();
                     window.frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -38,14 +41,17 @@ public class ShowLogin {
             }
         });
     }
-    public void show(){
+    public void show(Library library){
         try {
-            ShowLogin window = new ShowLogin();
+            ShowLogin window = new ShowLogin(library);
             window.initialize();
             window.frame.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public ShowLogin(Library library){
+        this.library = library;
     }
 
     /**
@@ -92,8 +98,8 @@ public class ShowLogin {
         btnRegister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                ShowRegister sh = new ShowRegister();
-                sh.show();
+                ShowRegister sh = new ShowRegister(library);
+                sh.show(library);
             }
         });
         btnRegister.setBounds(184, 198, 89, 23);
@@ -105,21 +111,22 @@ public class ShowLogin {
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AccountAccess accountAccess = new AccountAccess();
-                Library l =new Library();
-                User user = new User(textField.getText(),passwordField.getToolTipText());
-                ArrayList<Account>accounts = accountAccess.queryLogin(textField.getText(), passwordField.getToolTipText());
+                char[] pass = passwordField.getPassword();
+                String passString = new String(pass);
+                ArrayList<Account>accounts = accountAccess.queryLogin(textField.getText(), passString);
                 if(accounts.size() > 0){
-                    lblInvalidLoginPlease.setVisible(true);
+                    lblInvalidLoginPlease.setVisible(false);
 
+                    int id = library.getUserID(textField.getText());
+                    UserMenu userMenu = new UserMenu(id,library);
+                    userMenu.show(id,library);
+                    System.out.println("id Login:"+id);
+                    frame.setVisible(false);
                 }
                 else{
-                    lblInvalidLoginPlease.setVisible(false);
-                    user.createAccount();
-                    UserMenu userMenu = new UserMenu();
-                    userMenu.show();
-                    frame.setVisible(false);
-
-
+                    lblInvalidLoginPlease.setVisible(true);
+                    textField.setText("");
+                    passwordField.setText("");
                 }
             }
         });
@@ -129,6 +136,29 @@ public class ShowLogin {
         JButton btnStaff = new JButton("Staff");
         btnStaff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                AccountAccess accountAccess = new AccountAccess();
+                char[] pass = passwordField.getPassword();
+                String passString = new String(pass);
+                ArrayList<Account>accounts = accountAccess.queryLogin(textField.getText(), passString);
+                if(accounts.size() > 0){
+                    if(accounts.get(0).getType().equals("staff")) {
+                        lblInvalidLoginPlease.setVisible(false);
+                        lblInvalidLoginPlease.setText("Invalid login, please try again");
+                        StaffMenu sh = new StaffMenu();
+                        sh.show();
+                        frame.setVisible(false);
+                    }
+                    else{
+                        lblInvalidLoginPlease.setText("Not a staff account");
+                        lblInvalidLoginPlease.setVisible(true);
+                    }
+                }
+                else{
+                    lblInvalidLoginPlease.setText("Invalid login, please try again");
+                    lblInvalidLoginPlease.setVisible(true);
+                    textField.setText("");
+                    passwordField.setText("");
+                }
             }
         });
         btnStaff.setBounds(184, 233, 89, 23);

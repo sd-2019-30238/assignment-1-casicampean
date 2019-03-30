@@ -20,22 +20,10 @@ public class ShowAllAccounts {
     private JFrame frame;
     private JTable table;
 
+
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ShowAllAccounts window = new ShowAllAccounts();
-                    window.initialize();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     /**
      * Create the application.
@@ -61,7 +49,7 @@ public class ShowAllAccounts {
         frame.getContentPane().setLayout(null);
 
         table = new JTable();
-        AccountAccess acc =new AccountAccess();
+        AccountAccess acc = new AccountAccess();
         ArrayList<Account> ac = acc.queryAccount();
         table = Reflection.retrieveProperties(ac,5);
 
@@ -75,7 +63,7 @@ public class ShowAllAccounts {
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                UserMenu acc = new UserMenu();
+                StaffMenu acc = new StaffMenu();
                 acc.show();
             }
         });

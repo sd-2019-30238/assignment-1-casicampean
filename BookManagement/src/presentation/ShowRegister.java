@@ -2,6 +2,12 @@ package presentation;
 
 
 
+import bussinessLogic.Library;
+import bussinessLogic.Staff;
+import bussinessLogic.User;
+import dataAccess.AccountAccess;
+import models.Account;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,37 +15,34 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ShowRegister {
 
     private JFrame frame;
     private JTextField textField;
     private JTextField textField_1;
+    private Library library;
+    private int userID;
 
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ShowRegister window = new ShowRegister();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
-    public  void show(){
+
+    public  void show(Library library){
         try {
-            ShowRegister window = new ShowRegister();
+            ShowRegister window = new ShowRegister(library);
             window.initialize();
             window.frame.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public ShowRegister(Library library){
+        this.library = library;
     }
 
     /**
@@ -77,9 +80,57 @@ public class ShowRegister {
         lblPassword.setBounds(77, 133, 79, 14);
         frame.getContentPane().add(lblPassword);
 
+        JLabel lblWrong = new JLabel("This username already exists. Try another one");
+        lblWrong.setForeground(new Color(255, 0, 0));
+        lblWrong.setBounds(122, 161, 271, 14);
+        frame.getContentPane().add(lblWrong);
+        lblWrong.setVisible(false);
+
         JButton btnRegister = new JButton("Register");
-        btnRegister.setBounds(196, 200, 89, 23);
+        btnRegister.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AccountAccess acc  = new AccountAccess();
+                ArrayList<Account> aaa=acc.queryRegister(textField.getText());
+                Library library = new Library();
+                User user = new User(textField.getText(), textField_1.getText());
+                int size = aaa.size();
+                if(size > 0){
+                    lblWrong.setVisible(true);
+                }
+                else{
+                    lblWrong.setVisible(false);
+                    user.createAccount();
+                    ChoosePaymentPlan sh = new ChoosePaymentPlan(textField.getText(), library);
+                    sh.show(textField.getText(),library);
+                    frame.setVisible(false);
+                }
+
+            }
+        });
+        btnRegister.setBounds(77, 201, 134, 23);
         frame.getContentPane().add(btnRegister);
+
+        JButton btnRegisterAsStaff = new JButton("Register as Staff");
+        btnRegisterAsStaff.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                AccountAccess acc  = new AccountAccess();
+                ArrayList<Account> aaa=acc.queryRegister(textField.getText());
+                Staff staff = new Staff(textField.getText(), textField_1.getText());
+                int size = aaa.size();
+                if(size > 0){
+                    lblWrong.setVisible(true);
+                }
+                else{
+                    lblWrong.setVisible(false);
+                    staff.createAccount();
+                    ShowLogin sh = new ShowLogin(library);
+                    sh.show(library);
+                    frame.setVisible(false);
+                }
+            }
+        });
+        btnRegisterAsStaff.setBounds(234, 201, 134, 23);
+        frame.getContentPane().add(btnRegisterAsStaff);
     }
 
 }
