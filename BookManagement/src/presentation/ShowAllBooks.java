@@ -22,6 +22,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class ShowAllBooks {
 
@@ -163,7 +164,22 @@ public class ShowAllBooks {
                     User user = new User(account.getUsername(),account.getPassword());
                     user.setId(account.getId());
                     Book book = bookAccess.selectBook(Integer.parseInt(textField.getText()));
+                    if(book.getCount() == 0){
+                        lblDone.setText("Waiting");
+                    }
+                    else{
+                        lblDone.setText("Done");
+                    }
                     library.validateBorrow(user,book);
+
+                    for( Book b : library.getWaitingList().keySet()){
+                        for(User a : library.getWaitingList().get(b)){{
+                            System.out.println(a.getUsername()+ " "+a.getId());
+                        }
+
+                        }
+
+                    }
                     lblDone.setVisible(true);
                     panel.setVisible(false);
 

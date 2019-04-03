@@ -74,8 +74,22 @@ public class StaffMenu {
         });
         btnShowAllAccounts.setBounds(72, 104, 170, 23);
         frame.getContentPane().add(btnShowAllAccounts);
+
+        JButton btnEditBooks = new JButton("Edit Books");
+        btnEditBooks.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                EditBooks editBooks = new EditBooks();
+                editBooks.show();
+                frame.setVisible(false);
+            }
+        });
+        btnEditBooks.setBounds(72, 199, 170, 23);
+        frame.getContentPane().add(btnEditBooks);
+
         frame.setBounds(100, 100, 350, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
     }
 
 }

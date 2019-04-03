@@ -64,4 +64,19 @@ public class Account {
         return type;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
 }

@@ -142,8 +142,6 @@ public class AccountAccess {
 
             ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery(s).list();
 
-            displayAccounts(accounts);
-
             session.getTransaction().commit();
 
             return accounts;

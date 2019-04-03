@@ -99,18 +99,20 @@ public class Library {
         bookAccess.updateBook(book.getId(),book.getCount(), book.getBorrowedTimes());
         borrowedTable.deleteByBookId(book.getId());
         if(waitingList.containsKey(book)){
-            if(!(waitingList.get(book).isEmpty())) {
+            if(waitingList.get(book).size() > 0) {
                 assignNext(book);
-            }
-            else{
-                removeBookFromWaitingList(book);
             }
         }
     }
     public void assignNext(Book book){
         User user = waitingList.get(book).get(0);
         waitingList.get(book).remove(0);
-        validateBorrow(user,book);
+        book.setCount(book.getCount() - 1);
+        book.setBorrowedTimes(book.getBorrowedTimes() + 1);
+        bookAccess.updateBook(book.getId(),book.getCount(),book.getBorrowedTimes());
+        borrowedBooks.add(book);
+        user.addToBooks(book);
+        borrowedTable.addBBook(user.getId(),user.getUsername(),book.getId(), book.getTitle());
     }
 
     public void validatePaymentPlan(User user, String type){
@@ -137,35 +139,30 @@ public class Library {
     public static void main(String[] args) {
         Library l =new Library();
         BookAccess bbb =new BookAccess();
-        Book book = bbb.selectBook(2);
+        Book book = bbb.selectBook(3);
         AccountAccess aaa= new AccountAccess();
-        Account user = aaa.readAccount(2);
+        Account user = aaa.readAccount(1);
+        Account account1 = aaa.readAccount(3);
         User user2 = new User(user.getUsername(),user.getPassword());
         user2.setId(user.getId());
-
-        Account user3 = aaa.readAccount(2);
-        User user4 = new User(user3.getUsername(),user3.getPassword());
-        user2.setId(user3.getId());
+        User user3 = new User(account1.getUsername(),account1.getPassword());
+        user3.setId(account1.getId());
         //l.validateBorrow(user2,book);
-        l.validateBorrow(user2,book);
-        l.validateReturn(user4, book);
+        //l.validateBorrow(user2,book);
+        l.validateBorrow(user3,book);
+
+
+
+
         User u = l.getWaitingList().get(book).get(0);
         System.out.println(u.getUsername());
         System.out.println(l.getWaitingList().containsKey(book));
+        System.out.println(l.getWaitingList().get(book).size());
 
+        l.validateReturn(user2,book);
 
-
-
-
-
-        //user2.setId(1);
-        //user2.createAccount();
-        //l.getUserID(user2);
-        //System.out.println(l.getUserID(user2.getUsername()));
-        //user2.choosePayment("1 month");
-
-
-        //l.validatePaymentPlan(user2,"6 months");
+        System.out.println(l.getWaitingList().containsKey(book));
+        System.out.println(l.getWaitingList().get(book).size());
 
 
     }

@@ -82,6 +82,33 @@ public class BookAccess {
 
     }
 
+    public void updateBooks(int id, String title, String author, int date, int count){
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
+
+        // create session
+        Session session = factory.getCurrentSession();
+
+        try {
+
+            session.beginTransaction();
+            Book myBook = session.get(Book.class, id);
+            myBook.setTitle(title);
+            myBook.setAuthor(author);
+            myBook.setReleaseDate(date);
+            myBook.setCount(count);
+            session.getTransaction().commit();
+
+        }
+        finally {
+            factory.close();
+        }
+
+    }
+
 
     public void deleteBook(int id){
         // create session factory

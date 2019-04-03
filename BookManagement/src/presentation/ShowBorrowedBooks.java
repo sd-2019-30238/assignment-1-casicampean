@@ -133,7 +133,7 @@ public class ShowBorrowedBooks {
                     User user = new User(account.getUsername(),account.getPassword());
                     user.setId(account.getId());
                     Book book = books.get(0);
-                    library.validateReturn(user,book);
+                    library.validateReturn(user, book);
                     lblTryAgain.setVisible(false);
                     panel.setVisible(false);
 

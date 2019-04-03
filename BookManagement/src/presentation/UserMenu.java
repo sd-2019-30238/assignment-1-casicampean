@@ -72,7 +72,7 @@ public class UserMenu {
             public void actionPerformed(ActionEvent e) {
                 ShowBorrowedBooks sh = new ShowBorrowedBooks(getUserID(), library);
                 sh.show(getUserID(), library);
-                System.out.println("user menu"+getUserID());
+                System.out.println("user menu id: "+getUserID());
                 frame.setVisible(false);
             }
         });
@@ -83,7 +83,7 @@ public class UserMenu {
         btnLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ShowLogin lg = new ShowLogin(library);
-                frame.setVisible(true);
+                frame.setVisible(false);
                 lg.show(library);
             }
         });
