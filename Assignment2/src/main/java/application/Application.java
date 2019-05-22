@@ -19,8 +19,8 @@ public class Application {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = SpringApplication.run(Application.class, args);
-        AccountService accountService = context.getBean(AccountService.class);
+        /*ApplicationContext context =*/ SpringApplication.run(Application.class, args);
+        /*AccountService accountService = context.getBean(AccountService.class);
         BookService bookService = context.getBean(BookService.class);
         BorrowedBookService borrowedBookService = context.getBean(BorrowedBookService.class);
         borrowedBookService.printAccounts();
@@ -33,7 +33,7 @@ public class Application {
         //accountService.printAccounts();
         //System.out.println(accountService.existsAccount(2));
 
-
+*/
     }
 
 }

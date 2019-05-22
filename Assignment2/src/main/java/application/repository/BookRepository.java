@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
-   @Query("SELECT b FROM Book b where b.releaseDate = :releaseDate")
-    public List<Book> filterByDate(@Param("releaseDate") Integer releaseDate);
+   @Query("SELECT b FROM Book b where b.release_date = :release_date")
+    public List<Book> filterByDate(@Param("release_date") Integer release_date);
 
     @Query("SELECT b FROM Book b where b.author = :author")
     public List<Book> filterByAuthor(@Param("author") String author);

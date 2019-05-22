@@ -19,9 +19,9 @@ public class BorrowedBooks {
     @Column(name = "book")
     private String book;
 
-    public BorrowedBooks(int userID, String account, int bookID, String book) {
+    public BorrowedBooks(int userID, String username, int bookID, String book) {
         this.userID = userID;
-        this.username = account;
+        this.username = username;
         this.bookID = bookID;
         this.book = book;
     }
@@ -36,7 +36,7 @@ public class BorrowedBooks {
         return "BorrowedBooks{" +
                 "id=" + id +
                 ", userID=" + userID +
-                ", account='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", bookID=" + bookID +
                 ", book='" + book + '\'' +
                 '}';
@@ -58,14 +58,6 @@ public class BorrowedBooks {
         this.book = book;
     }
 
-    public String getAccount() {
-        return username;
-    }
-
-    public void setAccount(String account) {
-        this.username = account;
-    }
-
     public int getUserID() {
         return userID;
     }
@@ -80,5 +72,13 @@ public class BorrowedBooks {
 
     public void setBookID(int bookID) {
         this.bookID = bookID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

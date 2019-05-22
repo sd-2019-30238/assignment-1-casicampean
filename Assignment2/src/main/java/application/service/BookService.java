@@ -34,14 +34,14 @@ public class BookService {
     public void updateBook(Integer id, int count, int times){
         Book book = bookRepository.getOne(id);
         book.setCount(count);
-        book.setBorrowedTimes(times);
+        book.setBorrowed_times(times);
     }
 
     public void updateBoooooks(Integer id, String title, String author, int date, int count){
         Book book = bookRepository.getOne(id);
         book.setTitle(title);
         book.setAuthor(author);
-        book.setReleaseDate(date);
+        book.setRelease_date(date);
         book.setCount(count);
     }
 
@@ -73,7 +73,7 @@ public class BookService {
         return books1;
     }*/
 
-    public List<Book> filterByDate(int date){
+    public List<Book> filterByDate(Integer date){
         return bookRepository.filterByDate(date);
     }
 

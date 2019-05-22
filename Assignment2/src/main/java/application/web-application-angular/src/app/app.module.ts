@@ -13,6 +13,9 @@ import { BorrowedListComponent } from './borrowed-list/borrowed-list.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import {BookService} from "../book/book.service";
 import {BorrowedService} from "../borrowed/borrowed.service";
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import {AuthenticationService} from "./authentication.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import {BorrowedService} from "../borrowed/borrowed.service";
     AccountFormComponent,
     BookListComponent,
     BorrowedListComponent,
-    BookFormComponent
+    BookFormComponent,
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import {BorrowedService} from "../borrowed/borrowed.service";
     HttpClientModule,
     FormsModule
   ],
-  providers: [AccountServiceService, BookService, BorrowedService],
+  providers: [AccountServiceService, BookService, BorrowedService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

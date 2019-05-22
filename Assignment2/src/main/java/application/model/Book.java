@@ -14,7 +14,7 @@ public class Book {
     @Column(name = "id")
     private int id;
     @Column(name = "release_date")
-    private int releaseDate;
+    private int release_date;
     @Column(name = "title")
     private String title;
     @Column(name = "author")
@@ -24,16 +24,16 @@ public class Book {
     @Column(name = "count")
     private int count;
     @Column(name = "borrowed_times")
-    private int borrowedTimes;
+    private int borrowed_times;
 
 
-    public Book(String title, String author, int releaseDate, String gedre, int count, int borrowedTimes) {
+    public Book(String title, String author, int release_date, String gedre, int count, int borrowed_times) {
         this.title = title;
         this.author = author;
-        this.releaseDate = releaseDate;
+        this.release_date = release_date;
         this.genre = gedre;
         this.count = count;
-        this.borrowedTimes = borrowedTimes;
+        this.borrowed_times = borrowed_times;
     }
 
     public Book() {
@@ -46,10 +46,10 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", releaseDate=" + releaseDate +
+                ", release_date=" + release_date +
                 ", genre='" + genre + '\'' +
                 ", count=" + count + '\'' +
-                ", borrowedTimes=" + borrowedTimes +
+                ", borrowed_times=" + borrowed_times +
                 '}' + "\n";
     }
 
@@ -104,14 +104,6 @@ public class Book {
         this.author = author;
     }
 
-    public int getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(int releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public String getGenre() {
         return genre;
     }
@@ -120,14 +112,19 @@ public class Book {
         this.genre = genre;
     }
 
-    public int getBorrowedTimes() {
-        return borrowedTimes;
+    public int getRelease_date() {
+        return release_date;
     }
 
-    public void setBorrowedTimes(int borrowedTimes) {
-        this.borrowedTimes = borrowedTimes;
+    public void setRelease_date(int release_date) {
+        this.release_date = release_date;
     }
 
+    public int getBorrowed_times() {
+        return borrowed_times;
+    }
 
-
+    public void setBorrowed_times(int borrowed_times) {
+        this.borrowed_times = borrowed_times;
+    }
 }
