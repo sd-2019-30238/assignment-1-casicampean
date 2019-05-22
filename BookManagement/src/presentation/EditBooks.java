@@ -29,7 +29,7 @@ public class EditBooks {
     private JTextField textField_Date;
     private JTextField textField_Genre;
     private JTextField textField_Count;
-    private int ok =0;
+    private int ok = 0;
 
     /**
      * Launch the application.
@@ -48,7 +48,7 @@ public class EditBooks {
         });
     }
 
-    public void show(){
+    public void show() {
         try {
             EditBooks window = new EditBooks();
             window.initialize();
@@ -90,7 +90,7 @@ public class EditBooks {
         btnAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 ArrayList<Book> booksByTitle = bookAccess.queryByTitle(textField_Title.getText());
-                if(booksByTitle.size() > 0){
+                if (booksByTitle.size() > 0) {
                     lblIncorrect.setVisible(true);
                     textField.setText("");
                     textField_Author.setText("");
@@ -99,11 +99,10 @@ public class EditBooks {
                     textField_Date.setText("");
                     textField_Title.setText("");
 
-                }
-                else{
+                } else {
                     int date = Integer.parseInt(textField_Date.getText());
                     int count = Integer.parseInt(textField_Count.getText());
-                    bookAccess.addBook(textField_Title.getText(),textField_Author.getText(),date,textField_Genre.getText(),count,0);
+                    bookAccess.addBook(textField_Title.getText(), textField_Author.getText(), date, textField_Genre.getText(), count, 0);
                     lblIncorrect.setVisible(false);
                     textField.setText("");
                     textField_Author.setText("");
@@ -120,17 +119,14 @@ public class EditBooks {
         frame.getContentPane().add(btnAdd);
 
 
-
-
         JButton btnDelete = new JButton("Delete");
         btnDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int nrBooks = bookAccess.queryByID(Integer.parseInt(textField.getText()));
-                if(nrBooks > 0){
+                if (nrBooks > 0) {
                     bookAccess.deleteBook(Integer.parseInt(textField.getText()));
                     lblIncorrect.setVisible(false);
-                }
-                else{
+                } else {
                     lblIncorrect.setVisible(true);
 
                 }
@@ -144,25 +140,24 @@ public class EditBooks {
         btnUpdate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int nrBooks = bookAccess.queryByID(Integer.parseInt(textField.getText()));
-                if(nrBooks > 0){
+                if (nrBooks > 0) {
                     lblIncorrect.setVisible(false);
                     Book book = bookAccess.selectBook(Integer.parseInt(textField.getText()));
-                    if(!(textField_Title.equals(""))){
+                    if (!(textField_Title.equals(""))) {
                         book.setTitle(textField_Title.getText());
                     }
-                    if(!(textField_Author.equals(""))){
+                    if (!(textField_Author.equals(""))) {
                         book.setAuthor(textField_Author.getText());
                     }
-                    if(!(textField_Date.equals(null))){
+                    if (!(textField_Date.equals(null))) {
                         book.setReleaseDate(Integer.parseInt(textField_Date.getText()));
                     }
-                    if(!textField_Count.equals("")){
+                    if (!textField_Count.equals("")) {
                         book.setCount(Integer.parseInt(textField_Count.getText()));
                     }
-                    bookAccess.updateBooks( Integer.parseInt(textField.getText()),book.getTitle(),book.getAuthor(),book.getReleaseDate(),book.getCount());
+                    bookAccess.updateBooks(Integer.parseInt(textField.getText()), book.getTitle(), book.getAuthor(), book.getReleaseDate(), book.getCount());
 
-                }
-                else{
+                } else {
                     lblIncorrect.setVisible(true);
                 }
             }

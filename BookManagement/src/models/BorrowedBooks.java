@@ -7,14 +7,14 @@ import javax.persistence.*;
 @Table
 public class BorrowedBooks {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column (name = "userID")
+    @Column(name = "userID")
     private int userID;
     @Column(name = "username")
     private String account;
-    @Column (name = "bookID")
+    @Column(name = "bookID")
     private int bookID;
     @Column(name = "book")
     private String book;
@@ -26,7 +26,7 @@ public class BorrowedBooks {
         this.book = book;
     }
 
-    public BorrowedBooks(){
+    public BorrowedBooks() {
 
     }
 
@@ -64,8 +64,6 @@ public class BorrowedBooks {
     public void setAccount(String account) {
         this.account = account;
     }
-
-
 
 
 }

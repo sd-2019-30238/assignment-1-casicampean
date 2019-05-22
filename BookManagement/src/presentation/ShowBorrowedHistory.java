@@ -24,7 +24,7 @@ public class ShowBorrowedHistory {
      * Launch the application.
      */
 
-    public  void show(){
+    public void show() {
         try {
             ShowBorrowedHistory window = new ShowBorrowedHistory();
             window.initialize();
@@ -51,20 +51,18 @@ public class ShowBorrowedHistory {
         table = new JTable();
         Library library = new Library();
         ArrayList<BorrowedBooks> b = library.getBorrowedHistory();
-        table = Reflection.retrieveProperties(b,5);
+        table = Reflection.retrieveProperties(b, 5);
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(10, 11, 461, 203);
         frame.getContentPane().add(scrollPane);
 
 
-
-
         JButton btnBack = new JButton("Back");
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                StaffMenu s =new StaffMenu();
+                StaffMenu s = new StaffMenu();
                 s.show();
             }
         });

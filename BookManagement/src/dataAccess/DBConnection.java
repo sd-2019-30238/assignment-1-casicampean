@@ -17,8 +17,7 @@ public class DBConnection {
 
             System.out.println("Connection successful!!!");
 
-        }
-        catch (Exception exc) {
+        } catch (Exception exc) {
             exc.printStackTrace();
         }
     }

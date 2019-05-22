@@ -37,7 +37,8 @@ public class ShowBorrowedBooks {
     public void setUserID(int userID) {
         this.userID = userID;
     }
-    public ShowBorrowedBooks(int id, Library library){
+
+    public ShowBorrowedBooks(int id, Library library) {
         this.userID = id;
         this.library = library;
     }
@@ -58,10 +59,9 @@ public class ShowBorrowedBooks {
             }
         });
     }*/
-
-    public void show(int id, Library library){
+    public void show(int id, Library library) {
         try {
-            ShowBorrowedBooks window = new ShowBorrowedBooks(id,library);
+            ShowBorrowedBooks window = new ShowBorrowedBooks(id, library);
             window.initialize();
             window.frame.setVisible(true);
         } catch (Exception e) {
@@ -86,15 +86,13 @@ public class ShowBorrowedBooks {
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                UserMenu userMenu = new UserMenu(userID,library);
-                userMenu.show(userID,library);
+                UserMenu userMenu = new UserMenu(userID, library);
+                userMenu.show(userID, library);
             }
         });
 
         btnBack.setBounds(225, 227, 119, 23);
         frame.getContentPane().add(btnBack);
-
-
 
 
         JPanel panel = new JPanel();
@@ -125,20 +123,19 @@ public class ShowBorrowedBooks {
             public void actionPerformed(ActionEvent e) {
                 BookAccess bookAccess = new BookAccess();
                 AccountAccess accountAccess = new AccountAccess();
-                ArrayList<Book>books = bookAccess.queryByTitle(textField.getText());
-                if(books.size() > 0){
+                ArrayList<Book> books = bookAccess.queryByTitle(textField.getText());
+                if (books.size() > 0) {
                     //correct title, so we can return it
                     lblTryAgain.setVisible(false);
                     Account account = accountAccess.readAccount(userID);
-                    User user = new User(account.getUsername(),account.getPassword());
+                    User user = new User(account.getUsername(), account.getPassword());
                     user.setId(account.getId());
                     Book book = books.get(0);
                     library.validateReturn(user, book);
                     lblTryAgain.setVisible(false);
                     panel.setVisible(false);
 
-                }
-                else{
+                } else {
                     lblTryAgain.setVisible(true);
                     textField.setText("");
                 }
@@ -146,8 +143,6 @@ public class ShowBorrowedBooks {
         });
         btnOk.setBounds(82, 70, 55, 23);
         panel.add(btnOk);
-
-
 
 
         JButton btnReturnBook = new JButton("Return book");
@@ -163,14 +158,13 @@ public class ShowBorrowedBooks {
 
         BorrowedBooksAccess borrowedBooksAccess = new BorrowedBooksAccess();
         ArrayList<String> s = borrowedBooksAccess.getBooksByUser(this.userID);
-        System.out.println("id my books:"+this.userID);
+        System.out.println("id my books:" + this.userID);
 
         JList list = new JList(s.toArray());
         JScrollPane scrollPane = new JScrollPane(list);
         scrollPane.setBounds(47, 43, 335, 159);
         frame.getContentPane().add(scrollPane);
         lblTryAgain.setVisible(false);
-
 
 
     }

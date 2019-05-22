@@ -27,12 +27,12 @@ public class ChoosePaymentPlan {
      */
 
 
-    public ChoosePaymentPlan(String username, Library library){
+    public ChoosePaymentPlan(String username, Library library) {
         this.username = username;
         this.library = library;
     }
 
-    public  void show(String username, Library library){
+    public void show(String username, Library library) {
         try {
             ChoosePaymentPlan window = new ChoosePaymentPlan(username, library);
             window.initialize();
@@ -94,20 +94,18 @@ public class ChoosePaymentPlan {
         frame.getContentPane().add(lblPerYear);
 
 
-
-
         //1 month
         JButton btnSet = new JButton("Set");
         btnSet.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AccountAccess accountAccess = new AccountAccess();
                 ArrayList<Account> accounts = accountAccess.queryRegister(username);
-                if(accounts.size() > 0){
+                if (accounts.size() > 0) {
                     Account account = accounts.get(0);
-                    User user = new User(account.getUsername(),account.getPassword());
+                    User user = new User(account.getUsername(), account.getPassword());
                     user.setId(account.getId());
-                    System.out.println("payment"+username);
-                    library.validatePaymentPlan(user,"1 month");
+                    System.out.println("payment" + username);
+                    library.validatePaymentPlan(user, "1 month");
 
                     frame.setVisible(false);
                     ShowLogin showLogin = new ShowLogin(library);
@@ -116,7 +114,7 @@ public class ChoosePaymentPlan {
                 }
 
             }
-            });
+        });
         btnSet.setBounds(39, 195, 74, 23);
         frame.getContentPane().add(btnSet);
 
@@ -127,12 +125,12 @@ public class ChoosePaymentPlan {
             public void actionPerformed(ActionEvent e) {
                 AccountAccess accountAccess = new AccountAccess();
                 ArrayList<Account> accounts = accountAccess.queryRegister(username);
-                if(accounts.size() > 0){
+                if (accounts.size() > 0) {
                     Account account = accounts.get(0);
-                    User user = new User(account.getUsername(),account.getPassword());
+                    User user = new User(account.getUsername(), account.getPassword());
                     user.setId(account.getId());
-                    System.out.println("payment"+username);
-                    library.validatePaymentPlan(user,"6 months");
+                    System.out.println("payment" + username);
+                    library.validatePaymentPlan(user, "6 months");
 
                     frame.setVisible(false);
                     ShowLogin showLogin = new ShowLogin(library);
@@ -150,12 +148,12 @@ public class ChoosePaymentPlan {
             public void actionPerformed(ActionEvent e) {
                 AccountAccess accountAccess = new AccountAccess();
                 ArrayList<Account> accounts = accountAccess.queryRegister(username);
-                if(accounts.size() > 0){
+                if (accounts.size() > 0) {
                     Account account = accounts.get(0);
-                    User user = new User(account.getUsername(),account.getPassword());
+                    User user = new User(account.getUsername(), account.getPassword());
                     user.setId(account.getId());
-                    System.out.println("payment"+username);
-                    library.validatePaymentPlan(user,"1 year");
+                    System.out.println("payment" + username);
+                    library.validatePaymentPlan(user, "1 year");
 
                     frame.setVisible(false);
                     ShowLogin showLogin = new ShowLogin(library);

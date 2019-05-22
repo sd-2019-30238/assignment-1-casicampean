@@ -33,7 +33,7 @@ public class ShowRecommendations {
      */
 
 
-    public void show(int id, Library library){
+    public void show(int id, Library library) {
         try {
             ShowRecommendations window = new ShowRecommendations(id, library);
             window.initialize();
@@ -43,7 +43,7 @@ public class ShowRecommendations {
         }
     }
 
-    public ShowRecommendations(int id, Library library){
+    public ShowRecommendations(int id, Library library) {
         this.id = id;
         this.library = library;
     }
@@ -62,7 +62,6 @@ public class ShowRecommendations {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(12, 23, 605, 204);
         frame.getContentPane().add(scrollPane);
-
 
 
         textField = new JTextField();
@@ -84,7 +83,7 @@ public class ShowRecommendations {
                 Recommendation recommendation = recommendationFactory.getRecommentations("genres");
                 ArrayList<Book> books = recommendation.getReccomendation(textField.getText());
                 System.out.println(books.size());
-                if(books.size() > 0){
+                if (books.size() > 0) {
                     lblTryAgain.setVisible(false);
                     textField.setText("");
                     table = Reflection.retrieveProperties(books, 7);
@@ -92,8 +91,7 @@ public class ShowRecommendations {
                     scrollPane.setBounds(12, 23, 605, 204);
                     frame.getContentPane().add(scrollPane);
 
-                }
-                else{
+                } else {
                     lblTryAgain.setVisible(true);
                     textField.setText("");
                 }
@@ -107,7 +105,7 @@ public class ShowRecommendations {
             public void actionPerformed(ActionEvent e) {
                 Recommendation recommendation = recommendationFactory.getRecommentations("popularity");
                 ArrayList<Book> books = recommendation.getReccomendation(textField.getText());
-                if(books.size() > 0){
+                if (books.size() > 0) {
                     lblTryAgain.setVisible(false);
                     lblTryAgain.setText("Try again");
                     table = Reflection.retrieveProperties(books, 7);
@@ -115,8 +113,7 @@ public class ShowRecommendations {
                     scrollPane.setBounds(12, 23, 605, 204);
                     frame.getContentPane().add(scrollPane);
 
-                }
-                else{
+                } else {
                     lblTryAgain.setText("No recommendations for now");
                     lblTryAgain.setVisible(true);
                 }
@@ -130,7 +127,7 @@ public class ShowRecommendations {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 UserMenu userMenu = new UserMenu(id, library);
-                userMenu.show(id,library);
+                userMenu.show(id, library);
 
             }
         });

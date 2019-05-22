@@ -9,7 +9,7 @@ public class RecommendationByGenre implements Recommendation {
     @Override
     public ArrayList<Book> getReccomendation(String gendre) {
         BookAccess bookAccess = new BookAccess();
-        return bookAccess.filterByString("genre",gendre);
+        return bookAccess.filterByString("genre", gendre);
 
     }
 }

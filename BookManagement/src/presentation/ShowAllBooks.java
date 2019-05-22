@@ -48,13 +48,12 @@ public class ShowAllBooks {
             }
         });
     }*/
-
-    public ShowAllBooks(int id, Library library){
+    public ShowAllBooks(int id, Library library) {
         this.id = id;
         this.library = library;
     }
 
-    public  void show(int id, Library library){
+    public void show(int id, Library library) {
         try {
             this.id = id;
             ShowAllBooks window = new ShowAllBooks(id, library);
@@ -90,8 +89,8 @@ public class ShowAllBooks {
         btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                UserMenu userMenu =  new UserMenu(id,library);
-                userMenu.show(id,library);
+                UserMenu userMenu = new UserMenu(id, library);
+                userMenu.show(id, library);
                 frame.setVisible(false);
             }
         });
@@ -151,31 +150,30 @@ public class ShowAllBooks {
         });
 
 
-
         btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 BookAccess bookAccess = new BookAccess();
                 AccountAccess accountAccess = new AccountAccess();
                 int size = bookAccess.queryByID(Integer.parseInt(textField.getText()));
-                if(size > 0){
+                if (size > 0) {
                     //correct id, so we can borrow it
                     lblWrongId.setVisible(false);
                     Account account = accountAccess.readAccount(id);
-                    User user = new User(account.getUsername(),account.getPassword());
+                    User user = new User(account.getUsername(), account.getPassword());
                     user.setId(account.getId());
                     Book book = bookAccess.selectBook(Integer.parseInt(textField.getText()));
-                    if(book.getCount() == 0){
+                    if (book.getCount() == 0) {
                         lblDone.setText("Waiting");
-                    }
-                    else{
+                    } else {
                         lblDone.setText("Done");
                     }
-                    library.validateBorrow(user,book);
+                    library.validateBorrow(user, book);
 
-                    for( Book b : library.getWaitingList().keySet()){
-                        for(User a : library.getWaitingList().get(b)){{
-                            System.out.println(a.getUsername()+ " "+a.getId());
-                        }
+                    for (Book b : library.getWaitingList().keySet()) {
+                        for (User a : library.getWaitingList().get(b)) {
+                            {
+                                System.out.println(a.getUsername() + " " + a.getId());
+                            }
 
                         }
 
@@ -183,8 +181,7 @@ public class ShowAllBooks {
                     lblDone.setVisible(true);
                     panel.setVisible(false);
 
-                }
-                else{
+                } else {
                     lblWrongId.setVisible(true);
                     textField.setText("");
                     lblDone.setVisible(false);

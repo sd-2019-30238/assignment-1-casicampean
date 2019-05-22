@@ -1,7 +1,6 @@
 package presentation;
 
 
-
 import bussinessLogic.Library;
 import bussinessLogic.Staff;
 import bussinessLogic.User;
@@ -32,7 +31,7 @@ public class ShowRegister {
      */
 
 
-    public  void show(Library library){
+    public void show(Library library) {
         try {
             ShowRegister window = new ShowRegister(library);
             window.initialize();
@@ -41,7 +40,8 @@ public class ShowRegister {
             e.printStackTrace();
         }
     }
-    public ShowRegister(Library library){
+
+    public ShowRegister(Library library) {
         this.library = library;
     }
 
@@ -89,19 +89,18 @@ public class ShowRegister {
         JButton btnRegister = new JButton("Register");
         btnRegister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AccountAccess acc  = new AccountAccess();
-                ArrayList<Account> aaa=acc.queryRegister(textField.getText());
+                AccountAccess acc = new AccountAccess();
+                ArrayList<Account> aaa = acc.queryRegister(textField.getText());
                 Library library = new Library();
                 User user = new User(textField.getText(), textField_1.getText());
                 int size = aaa.size();
-                if(size > 0){
+                if (size > 0) {
                     lblWrong.setVisible(true);
-                }
-                else{
+                } else {
                     lblWrong.setVisible(false);
                     user.createAccount();
                     ChoosePaymentPlan sh = new ChoosePaymentPlan(textField.getText(), library);
-                    sh.show(textField.getText(),library);
+                    sh.show(textField.getText(), library);
                     frame.setVisible(false);
                 }
 
@@ -113,14 +112,13 @@ public class ShowRegister {
         JButton btnRegisterAsStaff = new JButton("Register as Staff");
         btnRegisterAsStaff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                AccountAccess acc  = new AccountAccess();
-                ArrayList<Account> aaa=acc.queryRegister(textField.getText());
+                AccountAccess acc = new AccountAccess();
+                ArrayList<Account> aaa = acc.queryRegister(textField.getText());
                 Staff staff = new Staff(textField.getText(), textField_1.getText());
                 int size = aaa.size();
-                if(size > 0){
+                if (size > 0) {
                     lblWrong.setVisible(true);
-                }
-                else{
+                } else {
                     lblWrong.setVisible(false);
                     staff.createAccount();
                     ShowLogin sh = new ShowLogin(library);

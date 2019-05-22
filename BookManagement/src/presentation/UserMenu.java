@@ -31,12 +31,13 @@ public class UserMenu {
     public void setUserID(int userID) {
         this.userID = userID;
     }
-    public UserMenu(int id, Library library){
+
+    public UserMenu(int id, Library library) {
         this.userID = id;
         this.library = library;
     }
 
-    public  void show(int id, Library library){
+    public void show(int id, Library library) {
         try {
             UserMenu window = new UserMenu(id, library);
             window.initialize();
@@ -58,7 +59,7 @@ public class UserMenu {
         btnShowAllBooks.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                ShowAllBooks showAllBooks = new ShowAllBooks(userID,library);
+                ShowAllBooks showAllBooks = new ShowAllBooks(userID, library);
                 showAllBooks.show(userID, library);
                 frame.setVisible(false);
             }
@@ -72,7 +73,7 @@ public class UserMenu {
             public void actionPerformed(ActionEvent e) {
                 ShowBorrowedBooks sh = new ShowBorrowedBooks(getUserID(), library);
                 sh.show(getUserID(), library);
-                System.out.println("user menu id: "+getUserID());
+                System.out.println("user menu id: " + getUserID());
                 frame.setVisible(false);
             }
         });
@@ -94,8 +95,8 @@ public class UserMenu {
         btnRecommendations.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                ShowRecommendations sh = new ShowRecommendations(userID,library);
-                sh.show(userID,library);
+                ShowRecommendations sh = new ShowRecommendations(userID, library);
+                sh.show(userID, library);
             }
         });
         frame.getContentPane().add(btnRecommendations);

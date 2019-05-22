@@ -13,7 +13,6 @@ import java.util.List;
 public class BookAccess {
 
 
-
     public void addBook(String title, String author, int date, String genre, int count, int borrowedTimes) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -23,16 +22,16 @@ public class BookAccess {
         // create session
         Session session = factory.getCurrentSession();
         try {
-            Book book1 = new Book (title, author, date, genre, count,borrowedTimes);
+            Book book1 = new Book(title, author, date, genre, count, borrowedTimes);
             session.beginTransaction();
             session.save(book1);
             session.getTransaction().commit();
-        }finally{
+        } finally {
             factory.close();
         }
     }
 
-    public Book selectBook(int id){
+    public Book selectBook(int id) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -50,14 +49,13 @@ public class BookAccess {
 
             return myBook;
 
-        }
-        finally {
+        } finally {
             factory.close();
         }
 
     }
 
-    public void updateBook(int id, int count, int times){
+    public void updateBook(int id, int count, int times) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -75,14 +73,13 @@ public class BookAccess {
             myBook.setBorrowedTimes(times);
             session.getTransaction().commit();
 
-        }
-        finally {
+        } finally {
             factory.close();
         }
 
     }
 
-    public void updateBooks(int id, String title, String author, int date, int count){
+    public void updateBooks(int id, String title, String author, int date, int count) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -102,15 +99,14 @@ public class BookAccess {
             myBook.setCount(count);
             session.getTransaction().commit();
 
-        }
-        finally {
+        } finally {
             factory.close();
         }
 
     }
 
 
-    public void deleteBook(int id){
+    public void deleteBook(int id) {
         // create session factory
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -130,8 +126,7 @@ public class BookAccess {
 
             session.getTransaction().commit();
 
-        }
-        finally {
+        } finally {
             factory.close();
         }
 
@@ -151,7 +146,7 @@ public class BookAccess {
 
             session.beginTransaction();
 
-            String s = "from Book s where s.releaseDate="+date;
+            String s = "from Book s where s.releaseDate=" + date;
 
             ArrayList<Book> books = (ArrayList<Book>) session.createQuery(s).list();
             displayBooks(books);
@@ -180,16 +175,22 @@ public class BookAccess {
 
             String s = "";
 
-            switch (column){
-                case "author": s = "from Book s where s.author="+"'"+string+"'"; break;
-                case "title": s = "from Book s where s.title="+"'"+string+"'"; break;
-                case "genre": s = "from Book s where s.genre="+"'"+string+"'"; break;
+            switch (column) {
+                case "author":
+                    s = "from Book s where s.author=" + "'" + string + "'";
+                    break;
+                case "title":
+                    s = "from Book s where s.title=" + "'" + string + "'";
+                    break;
+                case "genre":
+                    s = "from Book s where s.genre=" + "'" + string + "'";
+                    break;
             }
 
-            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery(s).list();
             session.getTransaction().commit();
 
-            return  books;
+            return books;
 
         } finally {
             factory.close();
@@ -197,28 +198,29 @@ public class BookAccess {
     }
 
     public ArrayList<Book> getAllBooks() {
-                // create session factory
-                SessionFactory factory = new Configuration()
-                        .configure("hibernate.cfg.xml")
-                        .addAnnotatedClass(Book.class)
-                        .buildSessionFactory();
+        // create session factory
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Book.class)
+                .buildSessionFactory();
 
-                // create session
-                Session session = factory.getCurrentSession();
+        // create session
+        Session session = factory.getCurrentSession();
 
-                try {
+        try {
 
-                    session.beginTransaction();
-                    ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book").list();
-                    // displayBooks(books);
-                    session.getTransaction().commit();
+            session.beginTransaction();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery("from Book").list();
+            // displayBooks(books);
+            session.getTransaction().commit();
 
-                    return books;
+            return books;
 
         } finally {
             factory.close();
         }
     }
+
     public ArrayList<Book> getBooksByPopularity() {
         // create session factory
         SessionFactory factory = new Configuration()
@@ -232,7 +234,7 @@ public class BookAccess {
         try {
 
             session.beginTransaction();
-            ArrayList<Book>books = (ArrayList<Book>) session.createQuery("from Book s where s.count > 3").list();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery("from Book s where s.borrowedTimes > 3").list();
             // displayBooks(books);
             session.getTransaction().commit();
 
@@ -254,9 +256,9 @@ public class BookAccess {
         Session session = factory.getCurrentSession();
 
         try {
-            String s = "from Book s where s.id="+id;
+            String s = "from Book s where s.id=" + id;
             session.beginTransaction();
-            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery(s).list();
             // displayBooks(books);
             session.getTransaction().commit();
 
@@ -266,6 +268,7 @@ public class BookAccess {
             factory.close();
         }
     }
+
     public ArrayList<Book> queryByTitle(String title) {
         // create session factory
         SessionFactory factory = new Configuration()
@@ -277,9 +280,9 @@ public class BookAccess {
         Session session = factory.getCurrentSession();
 
         try {
-            String s = "from Book s where s.title= '"+title+"'";
+            String s = "from Book s where s.title= '" + title + "'";
             session.beginTransaction();
-            ArrayList<Book>books = (ArrayList<Book>) session.createQuery(s).list();
+            ArrayList<Book> books = (ArrayList<Book>) session.createQuery(s).list();
             // displayBooks(books);
             session.getTransaction().commit();
 
@@ -289,8 +292,6 @@ public class BookAccess {
             factory.close();
         }
     }
-
-
 
 
     public static void displayBooks(ArrayList<Book> books) {
@@ -303,24 +304,18 @@ public class BookAccess {
         BookAccess b = new BookAccess();
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
-       // b.getAllBooks();
-        ArrayList<Book>boo = b.getBooksByPopularity();
+        // b.getAllBooks();
+        ArrayList<Book> boo = b.getBooksByPopularity();
 
         System.out.println(boo.size());
         Book book = boo.get(0);
-        System.out.println(book.getId()+" "+book.getTitle());
-
+        System.out.println(book.getId() + " " + book.getTitle());
 
 
         //displayBooks(boo);
 
 
-
     }
-
-
-
-
 
 
 }

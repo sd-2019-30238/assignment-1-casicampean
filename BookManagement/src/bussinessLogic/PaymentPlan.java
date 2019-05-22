@@ -4,24 +4,20 @@ public class PaymentPlan {
     private String type;
     private int price;
 
-    public PaymentPlan(String plan){
-        if(plan.equals("1 month"))
-        {
+    public PaymentPlan(String plan) {
+        if (plan.equals("1 month")) {
             this.type = "1 month";
             this.price = 15;
         }
-        if(plan.equals("6 months"))
-        {
+        if (plan.equals("6 months")) {
             this.type = "6 months";
             this.price = 75;
         }
-        if(plan.equals("1 year"))
-        {
+        if (plan.equals("1 year")) {
             this.type = "1 year";
             this.price = 120;
         }
-        if(plan.equals("staff"))
-        {
+        if (plan.equals("staff")) {
             this.type = "staff";
             this.price = 0;
         }
@@ -42,8 +38,6 @@ public class PaymentPlan {
     public void setPrice(int price) {
         this.price = price;
     }
-
-
 
 
 }

@@ -31,7 +31,7 @@ public class ShowLogin {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    Library library =  new Library();
+                    Library library = new Library();
                     ShowLogin window = new ShowLogin(library);
                     window.initialize();
                     window.frame.setVisible(true);
@@ -41,7 +41,8 @@ public class ShowLogin {
             }
         });
     }
-    public void show(Library library){
+
+    public void show(Library library) {
         try {
             ShowLogin window = new ShowLogin(library);
             window.initialize();
@@ -50,7 +51,8 @@ public class ShowLogin {
             e.printStackTrace();
         }
     }
-    public ShowLogin(Library library){
+
+    public ShowLogin(Library library) {
         this.library = library;
     }
 
@@ -106,24 +108,22 @@ public class ShowLogin {
         frame.getContentPane().add(btnRegister);
 
 
-
         JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AccountAccess accountAccess = new AccountAccess();
                 char[] pass = passwordField.getPassword();
                 String passString = new String(pass);
-                ArrayList<Account>accounts = accountAccess.queryLogin(textField.getText(), passString);
-                if(accounts.size() > 0){
+                ArrayList<Account> accounts = accountAccess.queryLogin(textField.getText(), passString);
+                if (accounts.size() > 0) {
                     lblInvalidLoginPlease.setVisible(false);
 
                     int id = library.getUserID(textField.getText());
-                    UserMenu userMenu = new UserMenu(id,library);
-                    userMenu.show(id,library);
-                    System.out.println("id Login:"+id);
+                    UserMenu userMenu = new UserMenu(id, library);
+                    userMenu.show(id, library);
+                    System.out.println("id Login:" + id);
                     frame.setVisible(false);
-                }
-                else{
+                } else {
                     lblInvalidLoginPlease.setVisible(true);
                     textField.setText("");
                     passwordField.setText("");
@@ -139,21 +139,19 @@ public class ShowLogin {
                 AccountAccess accountAccess = new AccountAccess();
                 char[] pass = passwordField.getPassword();
                 String passString = new String(pass);
-                ArrayList<Account>accounts = accountAccess.queryLogin(textField.getText(), passString);
-                if(accounts.size() > 0){
-                    if(accounts.get(0).getType().equals("staff")) {
+                ArrayList<Account> accounts = accountAccess.queryLogin(textField.getText(), passString);
+                if (accounts.size() > 0) {
+                    if (accounts.get(0).getType().equals("staff")) {
                         lblInvalidLoginPlease.setVisible(false);
                         lblInvalidLoginPlease.setText("Invalid login, please try again");
                         StaffMenu sh = new StaffMenu();
                         sh.show();
                         frame.setVisible(false);
-                    }
-                    else{
+                    } else {
                         lblInvalidLoginPlease.setText("Not a staff account");
                         lblInvalidLoginPlease.setVisible(true);
                     }
-                }
-                else{
+                } else {
                     lblInvalidLoginPlease.setText("Invalid login, please try again");
                     lblInvalidLoginPlease.setVisible(true);
                     textField.setText("");
@@ -165,11 +163,10 @@ public class ShowLogin {
         frame.getContentPane().add(btnStaff);
 
 
-
-
     }
-    public User getUser(){
-        User user = new User(textField.getText(),passwordField.getToolTipText());
+
+    public User getUser() {
+        User user = new User(textField.getText(), passwordField.getToolTipText());
         return user;
     }
 }

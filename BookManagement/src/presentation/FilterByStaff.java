@@ -33,7 +33,7 @@ public class FilterByStaff {
     /**
      * Create the application.
      */
-    public void show(){
+    public void show() {
         try {
             FilterByStaff window = new FilterByStaff();
             window.initialize();
@@ -76,7 +76,7 @@ public class FilterByStaff {
 
         BookAccess bookAccess = new BookAccess();
         ArrayList<Book> books = bookAccess.getAllBooks();
-        table = Reflection.retrieveProperties(books,7);
+        table = Reflection.retrieveProperties(books, 7);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(10, 11, 521, 163);
         frame.getContentPane().add(scrollPane);
@@ -85,15 +85,13 @@ public class FilterByStaff {
         btnByReleaseDate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<Book> books = bookAccess.filterByReleaseDate(Integer.parseInt(textField.getText()));
-                if(books.size() > 0){
+                if (books.size() > 0) {
                     lblIncorrectdoesntExists.setVisible(false);
                     table = Reflection.retrieveProperties(books, 7);
                     JScrollPane scrollPane = new JScrollPane(table);
                     scrollPane.setBounds(10, 11, 521, 163);
                     frame.getContentPane().add(scrollPane);
-                }
-                else
-                {
+                } else {
                     lblIncorrectdoesntExists.setVisible(true);
                     textField.setText("");
                 }
@@ -106,16 +104,14 @@ public class FilterByStaff {
         btnByAuthor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                ArrayList<Book> books = bookAccess.filterByString("author",textField.getText());
-                if(books.size() > 0){
+                ArrayList<Book> books = bookAccess.filterByString("author", textField.getText());
+                if (books.size() > 0) {
                     lblIncorrectdoesntExists.setVisible(false);
                     table = Reflection.retrieveProperties(books, 7);
                     JScrollPane scrollPane = new JScrollPane(table);
                     scrollPane.setBounds(10, 11, 521, 163);
                     frame.getContentPane().add(scrollPane);
-                }
-                else
-                {
+                } else {
                     lblIncorrectdoesntExists.setVisible(true);
                     textField.setText("");
                 }
@@ -129,16 +125,14 @@ public class FilterByStaff {
         btnByTitle.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                ArrayList<Book> books = bookAccess.filterByString("title",textField.getText());
-                if(books.size() > 0){
+                ArrayList<Book> books = bookAccess.filterByString("title", textField.getText());
+                if (books.size() > 0) {
                     lblIncorrectdoesntExists.setVisible(false);
                     table = Reflection.retrieveProperties(books, 7);
                     JScrollPane scrollPane = new JScrollPane(table);
                     scrollPane.setBounds(10, 11, 521, 163);
                     frame.getContentPane().add(scrollPane);
-                }
-                else
-                {
+                } else {
                     lblIncorrectdoesntExists.setVisible(true);
                     textField.setText("");
                 }
@@ -151,16 +145,14 @@ public class FilterByStaff {
         btnByGendre.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                ArrayList<Book> books = bookAccess.filterByString("genre",textField.getText());
-                if(books.size() > 0){
+                ArrayList<Book> books = bookAccess.filterByString("genre", textField.getText());
+                if (books.size() > 0) {
                     lblIncorrectdoesntExists.setVisible(false);
                     table = Reflection.retrieveProperties(books, 7);
                     JScrollPane scrollPane = new JScrollPane(table);
                     scrollPane.setBounds(10, 11, 521, 163);
                     frame.getContentPane().add(scrollPane);
-                }
-                else
-                {
+                } else {
                     lblIncorrectdoesntExists.setVisible(true);
                     textField.setText("");
                 }

@@ -28,7 +28,7 @@ public class ShowAllAccounts {
     /**
      * Create the application.
      */
-    public void show(){
+    public void show() {
         try {
             ShowAllAccounts window = new ShowAllAccounts();
             window.initialize();
@@ -51,12 +51,11 @@ public class ShowAllAccounts {
         table = new JTable();
         AccountAccess acc = new AccountAccess();
         ArrayList<Account> ac = acc.queryAccount();
-        table = Reflection.retrieveProperties(ac,5);
+        table = Reflection.retrieveProperties(ac, 5);
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(36, 22, 442, 193);
         frame.getContentPane().add(scrollPane);
-
 
 
         JButton btnBack = new JButton("Back");

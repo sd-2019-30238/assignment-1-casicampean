@@ -20,7 +20,7 @@ public class StaffMenu {
     /**
      * Create the application.
      */
-    public void show(){
+    public void show() {
         try {
             StaffMenu window = new StaffMenu();
             window.initialize();
@@ -43,7 +43,7 @@ public class StaffMenu {
         btnShowBorrowedHistory.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                ShowBorrowedHistory h= new ShowBorrowedHistory();
+                ShowBorrowedHistory h = new ShowBorrowedHistory();
                 h.show();
             }
         });
@@ -61,7 +61,6 @@ public class StaffMenu {
         });
         btnFilterBy.setBounds(72, 152, 170, 23);
         frame.getContentPane().add(btnFilterBy);
-
 
 
         JButton btnShowAllAccounts = new JButton("Show all accounts");

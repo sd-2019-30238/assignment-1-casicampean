@@ -10,85 +10,85 @@ import java.util.List;
 
 public class AccountAccess {
 
-    public void addAccount(String username, String password, String type){
+    public void addAccount(String username, String password, String type) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             Account account = new Account(username, password, type);
-            if(type.equals("staff")){
+            if (type.equals("staff")) {
                 account.setPayment("free");
             }
             session.beginTransaction();
             session.save(account);
             session.getTransaction().commit();
-        }finally {
+        } finally {
             factory.close();
         }
     }
 
-    public Account readAccount(int id){
+    public Account readAccount(int id) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
             Account account = session.get(Account.class, id);
             session.getTransaction().commit();
             return account;
-        }finally {
+        } finally {
             factory.close();
         }
 
     }
 
-    public void updateAccount(int id, String payment){
+    public void updateAccount(int id, String payment) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
             Account account = session.get(Account.class, id);
             account.setPayment(payment);
             session.getTransaction().commit();
-        }finally {
+        } finally {
             factory.close();
         }
     }
 
-    public void deleteAccount(int id){
+    public void deleteAccount(int id) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
             Account account = session.get(Account.class, id);
             session.delete(account);
             session.getTransaction().commit();
-        }finally {
+        } finally {
             factory.close();
         }
     }
 
-    public ArrayList<Account> queryAccount(){
+    public ArrayList<Account> queryAccount() {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
 
@@ -100,21 +100,22 @@ public class AccountAccess {
             session.getTransaction().commit();
 
             return accounts;
-        }finally {
+        } finally {
             factory.close();
         }
     }
-    public ArrayList<Account> queryLogin(String username, String password){
+
+    public ArrayList<Account> queryLogin(String username, String password) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
 
-            String s = "from Account s where s.username="+"'"+username+"' and s.password= '"+password+"'";
+            String s = "from Account s where s.username=" + "'" + username + "' and s.password= '" + password + "'";
 
             ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery(s).list();
 
@@ -124,28 +125,29 @@ public class AccountAccess {
             session.getTransaction().commit();
 
             return accounts;
-        }finally {
+        } finally {
             factory.close();
         }
     }
-    public ArrayList<Account> queryRegister(String username){
+
+    public ArrayList<Account> queryRegister(String username) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Account.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
-        try{
+        try {
 
             session.beginTransaction();
 
-            String s = "from Account s where s.username="+"'"+username+"'";
+            String s = "from Account s where s.username=" + "'" + username + "'";
 
             ArrayList<Account> accounts = (ArrayList<Account>) session.createQuery(s).list();
 
             session.getTransaction().commit();
 
             return accounts;
-        }finally {
+        } finally {
             factory.close();
         }
     }
@@ -164,7 +166,7 @@ public class AccountAccess {
         //a.queryAccount();
         a.updateAccount(1, "1 month");
         b = a.readAccount(1);
-        ArrayList<Account>aaa=a.queryRegister("cccccc");
+        ArrayList<Account> aaa = a.queryRegister("cccccc");
 
 
         System.out.println(aaa.size());

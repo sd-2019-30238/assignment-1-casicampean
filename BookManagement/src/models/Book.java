@@ -9,26 +9,24 @@ import java.util.Date;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "title")
     private String title;
     @Column(name = "author")
     private String author;
-    @Column(name = "releaseDate")
+    @Column(name = "release_date")
     private int releaseDate;
     @Column(name = "genre")
     private String genre;
     @Column(name = "count")
     private int count;
-    @Column (name = "borrowedTimes")
+    @Column(name = "borrowed_times")
     private int borrowedTimes;
 
 
-
-
-    public Book(String title, String author, int releaseDate, String gendre, int count,int borrowedTimes) {
+    public Book(String title, String author, int releaseDate, String gendre, int count, int borrowedTimes) {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;
@@ -37,7 +35,7 @@ public class Book {
         this.borrowedTimes = borrowedTimes;
     }
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -51,7 +49,7 @@ public class Book {
                 ", gendre='" + genre + '\'' +
                 ", count=" + count + '\'' +
                 ", borrowedTimes=" + borrowedTimes +
-                '}'+"\n";
+                '}' + "\n";
     }
 
     @Override
@@ -64,11 +62,12 @@ public class Book {
             return true;
         return this.getId() == ((Book) obj).getId();
     }
+
     @Override
     public int hashCode() {
         // TODO Auto-generated method stub
-        int result=1;
-        result=31*result+((title == null) ? 0 : title.hashCode());
+        int result = 1;
+        result = 31 * result + ((title == null) ? 0 : title.hashCode());
         return result;
     }
 

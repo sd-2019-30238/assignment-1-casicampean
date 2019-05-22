@@ -4,7 +4,7 @@ import dataAccess.AccountAccess;
 import models.Account;
 import models.Book;
 
-public class Staff  {
+public class Staff {
     private int id;
     private String username;
     private String password;
@@ -12,20 +12,23 @@ public class Staff  {
     private AccountAccess accountAccess;
     private Library library;
 
-    public Staff(String username, String password){
+    public Staff(String username, String password) {
         this.username = username;
         this.password = password;
         this.accountAccess = new AccountAccess();
         this.library = new Library();
     }
-    public void validatePayment(){
+
+    public void validatePayment() {
 
     }
-    public void validateReturn(){
+
+    public void validateReturn() {
 
     }
-    public void createAccount(){
-        accountAccess.addAccount(this.username,this.password,"staff");
+
+    public void createAccount() {
+        accountAccess.addAccount(this.username, this.password, "staff");
         library.addStaff(this);
     }
 
@@ -52,8 +55,6 @@ public class Staff  {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 
 
 }

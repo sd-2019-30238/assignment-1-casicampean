@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BorrowedBooksAccess {
 
-    public void addBBook(int userID, String account, int bookID, String book){
+    public void addBBook(int userID, String account, int bookID, String book) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -22,12 +22,12 @@ public class BorrowedBooksAccess {
             session.beginTransaction();
             session.save(book1);
             session.getTransaction().commit();
-        }finally{
+        } finally {
             factory.close();
         }
     }
 
-    public ArrayList<BorrowedBooks> selectAll(){
+    public ArrayList<BorrowedBooks> selectAll() {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -39,13 +39,13 @@ public class BorrowedBooksAccess {
             ArrayList<BorrowedBooks> books = (ArrayList<BorrowedBooks>) session.createQuery("from BorrowedBooks").list();
             session.getTransaction().commit();
             return books;
-        }finally{
+        } finally {
             factory.close();
         }
 
     }
 
-    public ArrayList<String> getBooksByUser(int id){
+    public ArrayList<String> getBooksByUser(int id) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -54,18 +54,18 @@ public class BorrowedBooksAccess {
         try {
 
             session.beginTransaction();
-            ArrayList<String> books = (ArrayList<String>) session.createQuery("select book from BorrowedBooks where userID = "+id).list();
+            ArrayList<String> books = (ArrayList<String>) session.createQuery("select book from BorrowedBooks where userID = " + id).list();
             session.getTransaction().commit();
 
             return books;
-        }finally{
+        } finally {
             factory.close();
         }
 
     }
 
 
-    public void deleteByBookId(int id){
+    public void deleteByBookId(int id) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(BorrowedBooks.class)
@@ -74,10 +74,10 @@ public class BorrowedBooksAccess {
         try {
 
             session.beginTransaction();
-            session.createQuery("delete from BorrowedBooks where bookID="+id).executeUpdate();
+            session.createQuery("delete from BorrowedBooks where bookID=" + id).executeUpdate();
             session.getTransaction().commit();
 
-        }finally{
+        } finally {
             factory.close();
         }
 
@@ -85,7 +85,7 @@ public class BorrowedBooksAccess {
 
     public static void main(String[] args) {
         BorrowedBooksAccess b = new BorrowedBooksAccess();
-        b.addBBook(1,"aa",2,"ccc");
+        b.addBBook(1, "aa", 2, "ccc");
         //b.addBook("vv","aa",null,"comedy",12);
         //b.updateBook(2,1);
         //ArrayList<String> s = b.getBooksByUser("aa");

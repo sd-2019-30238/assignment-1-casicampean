@@ -2,6 +2,7 @@ package bussinessLogic;
 
 import models.Account;
 import models.Book;
+
 import java.util.ArrayList;
 
 public class User {
@@ -10,7 +11,7 @@ public class User {
     private String password;
     private PaymentPlan paymentPlan;
     private Account account;
-    private ArrayList<Book>books;
+    private ArrayList<Book> books;
     private Library library;
 
     public User(String username, String password) {
@@ -19,31 +20,33 @@ public class User {
         this.books = new ArrayList<>();
         this.library = new Library();
     }
-    public User(){}
 
-    public void borrowBook(Book book){
+    public User() {
+    }
+
+    public void borrowBook(Book book) {
         library.validateBorrow(this, book);
     }
 
-    public void removeFromBooks(Book book){
+    public void removeFromBooks(Book book) {
         books.remove(book);
     }
-    public void addToBooks(Book book){
+
+    public void addToBooks(Book book) {
         books.add(book);
     }
 
-    public void returnBook(Book book){
+    public void returnBook(Book book) {
         library.validateReturn(this, book);
     }
 
-    public void createAccount(){
+    public void createAccount() {
         library.validateAccount(this);
-
 
 
     }
 
-    public void choosePayment(String type){
+    public void choosePayment(String type) {
         library.validatePaymentPlan(this, type);
 
     }
@@ -90,9 +93,6 @@ public class User {
     }
 
 
-
-
-
     public Account getAcount() {
         return account;
     }
@@ -100,8 +100,6 @@ public class User {
     public void setAcount(Account acount) {
         this.account = acount;
     }
-
-
 
 
 }
