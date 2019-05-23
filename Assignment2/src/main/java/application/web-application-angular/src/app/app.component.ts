@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NotificationService} from "./service/notification.service";
 
 @Component({
   selector: 'app-root',

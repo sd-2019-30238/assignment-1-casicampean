@@ -6,15 +6,18 @@ import application.model.BorrowedBooks;
 import application.service.AccountService;
 import application.service.BookService;
 import application.service.BorrowedBookService;
+import application.service.NotificationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Import;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
+@Import({NotificationService.class})
 public class Application {
 
     public static void main(String[] args) {

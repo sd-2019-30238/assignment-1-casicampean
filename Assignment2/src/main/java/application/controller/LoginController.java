@@ -47,7 +47,8 @@ public class LoginController {
         List<Account> accountList = accountRepository.findAll();
 
         for (Account account1 : accountList) {
-            if (account1.getUsername().equals(account1.getUsername())) {
+            if (account1.getUsername().equals(account.getUsername())) {
+
                 return account1;//if I find a the right account in the DB I return it
             }
         }

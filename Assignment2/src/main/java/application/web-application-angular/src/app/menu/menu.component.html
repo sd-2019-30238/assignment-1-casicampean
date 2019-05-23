@@ -1,21 +1,15 @@
+<header>
+  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+    <div><a class="navbar-brand">Book Application</a></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()"  class="list-inline-item"><a routerLink="/accounts" class="btn btn-info">List Users</a></li>
-            <li *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" class="list-inline-item"><a routerLink="/addAccount" class="btn btn-info">Add User</a></li>
-            <li *ngIf="loginService.isUserLoggedIn() " class="list-inline-item"><a routerLink="/books" class="btn btn-info">List Books</a></li>
-            <li *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" class="list-inline-item"><a routerLink="/addBook" class="btn btn-info">Add Book</a></li>
-            <li *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" class="list-inline-item"><a routerLink="/borrowedBooks" class="btn btn-info">List Borrowed Books</a></li>
-            <li *ngIf="loginService.isUserLoggedIn()" class="list-inline-item"><a routerLink="/logout" class="btn btn-info">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+    <ul class="navbar-nav">
+      <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" routerLink="/accounts" class="nav-link">All Users</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/books" class="nav-link">List Books</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" routerLink="/addBook" class="nav-link">Add Book</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isStaff()" routerLink="/borrowedBooks" class="nav-link">List Borrowed Books</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn() && !loginService.isStaff()" routerLink="/myBooks" class="nav-link">List My Books</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" class="list-inline-item" routerLink="/logout" class="nav-link">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../service/authentication.service";
 import {Account} from "../../models/account";
+import {BorrowedService} from "../service/borrowed.service";
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,13 @@ export class LoginComponent implements OnInit {
   invalidLogin = false
   account = new Account();
 
-  constructor(private router: Router, private loginService: AuthenticationService) { }
+  constructor(private router: Router, private loginService: AuthenticationService, private  borrowedService: BorrowedService) { }
 
   ngOnInit(){
   }
 
-  getLoggedUser(): void {
-    this.loginService.getLoggedUser()
+  getLoggedAccount(): void {
+    this.loginService.getLoggedAccount()
       .subscribe(account => {
         this.account = account;
       });
@@ -33,11 +34,14 @@ export class LoginComponent implements OnInit {
     this.account.password = this.password;
 
     this.loginService.validCredentials(this.username, this.password).subscribe(res => {
-      this.router.navigate(['menu'])
+      this.router.navigate([''])
       this.loginService.authenticate(res as number, this.username);
-      this.getLoggedUser();
 
     });
   }
+  register(){
+    this.router.navigate(['addAccount']);
+  }
+
 
 }

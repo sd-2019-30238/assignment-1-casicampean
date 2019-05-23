@@ -1,6 +1,7 @@
 package application.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import application.model.Account;
 import application.repository.AccountRepository;
@@ -22,6 +23,17 @@ public class AccountController {
         return (List<Account>) accountRepository.findAll();
     }
 
+    @PostMapping("/getaccount")
+    public Account getAccount(Account account){
+        Optional<Account> loggedAccount = accountRepository.findById(account.getId());
+
+        if (loggedAccount.isPresent()){
+            return loggedAccount.get();
+        }
+
+        return account;
+    }
+
     @PostMapping("/accounts")
     void addAccount(@RequestBody Account account) {
         accountRepository.save(account);
@@ -40,5 +52,7 @@ public class AccountController {
         }
         return deletedAcc;
     }
+
+
 
 }

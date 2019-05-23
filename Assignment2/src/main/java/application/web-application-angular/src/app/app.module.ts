@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import {AuthenticationService} from "./service/authentication.service";
 import { LogoutComponent } from './logout/logout.component';
+import { MyBooksComponent } from './my-books/my-books.component';
+import {NotificationService} from "./service/notification.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LogoutComponent } from './logout/logout.component';
     BookFormComponent,
     LoginComponent,
     MenuComponent,
-    LogoutComponent
+    LogoutComponent,
+    MyBooksComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AccountServiceService, BookService, BorrowedService, AuthenticationService],
+  providers: [AccountServiceService, BookService, BorrowedService, AuthenticationService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

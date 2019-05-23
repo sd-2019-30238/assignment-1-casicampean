@@ -48,12 +48,11 @@ public class Account implements Observer {
 
     }
 
-    public Account(String username, String password, String type, Subject book) {
+    public Account(String username, String password, String type) {
         this.username = username;
         this.password = password;
         this.type = type;
         this.observerID = ++observerIDTracker;
-        this.book = book;
         System.out.println("New Observer " + this.observerID);
         book.register(this);
 

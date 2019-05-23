@@ -11,10 +11,8 @@ export class AuthenticationService{
 
   private loginURL = 'http://localhost:8080/login';
   account = new Account();
+
   staff = false;
-
-
-
 
   constructor(private http:HttpClient) { }
 
@@ -51,7 +49,7 @@ export class AuthenticationService{
     return this.staff;
   }
 
-  getLoggedUser (): Observable<Account> {
+  getLoggedAccount (): Observable<Account> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -61,11 +59,19 @@ export class AuthenticationService{
 
   isUserLoggedIn(){
     let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
+    //console.log(!(user === null))
     return !(user === null)
   }
 
   logOut(){
     sessionStorage.removeItem('username')
+  }
+
+  getAccountId(){
+    return this.account.id;
+  }
+
+  getAccountUsername(){
+    return this.account.username;
   }
 }

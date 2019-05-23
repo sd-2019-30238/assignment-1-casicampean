@@ -141,6 +141,8 @@ public class Book implements Subject {
         this.borrowed_times = borrowed_times;
     }
 
+
+
     @Override
     public void register(Observer observer) {
         observers.add(observer);

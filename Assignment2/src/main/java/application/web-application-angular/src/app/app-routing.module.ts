@@ -9,15 +9,15 @@ import {LoginComponent} from "./login/login.component";
 import {MenuComponent} from "./menu/menu.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {AuthGuardService} from "./service/auth-guard.service";
+import {MyBooksComponent} from "./my-books/my-books.component";
 
 const routes: Routes = [
-  {
-    path:'', redirectTo: '/login', pathMatch:'full'},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService]},
+  {path: 'myBooks', component: MyBooksComponent, canActivate:[AuthGuardService]},
   {path: 'menu', component: MenuComponent, canActivate:[AuthGuardService]},
   {path: 'accounts', component: AccountListComponent, canActivate:[AuthGuardService]},
-  {path: 'addAccount', component: AccountFormComponent, canActivate:[AuthGuardService]},
+  {path: 'addAccount', component: AccountFormComponent},
   {path: 'books', component: BookListComponent, canActivate:[AuthGuardService]},
   {path: 'addBook', component: BookFormComponent, canActivate:[AuthGuardService]},
   {path: 'borrowedBooks', component: BorrowedListComponent, canActivate:[AuthGuardService]}
