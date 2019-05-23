@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Borrowed} from "../../borrowed/borrowed";
-import {BorrowedService} from "../../borrowed/borrowed.service";
+import {Borrowed} from "../../models/borrowed";
+import {BorrowedService} from "../service/borrowed.service";
 
 @Component({
   selector: 'app-borrowed-list',

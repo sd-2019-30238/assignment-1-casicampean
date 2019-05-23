@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from "../../book/book";
-import {BookService} from "../../book/book.service";
+import {Book} from "../../models/book";
+import {BookService} from "../service/book.service";
+import {AccountServiceService} from "../service/account-service.service";
+import {AuthenticationService} from "../service/authentication.service";
 
 @Component({
   selector: 'app-book-list',
@@ -11,7 +13,7 @@ export class BookListComponent implements OnInit {
 
   books: Book[];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService , private service: AuthenticationService) { }
 
   ngOnInit() {
     this.bookService.findAll().subscribe(data =>{

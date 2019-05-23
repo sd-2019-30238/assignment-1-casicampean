@@ -27,4 +27,18 @@ public class AccountController {
         accountRepository.save(account);
     }
 
+    @DeleteMapping(path = { "/{id}" })
+    public Account delete(@PathVariable("id") int id) {
+        Account deletedAcc = null;
+        List<Account>accountList = accountRepository.findAll();
+        for (Account account : accountList) {
+            if (account.getType().equals(id)) {
+                accountList.remove(account);
+                deletedAcc = account;
+                break;
+            }
+        }
+        return deletedAcc;
+    }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Account} from "../../account/account";
+import {Account} from "../../models/account";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AccountServiceService} from "../../account/account-service.service";
+import {AccountServiceService} from "../service/account-service.service";
 
 @Component({
   selector: 'app-account-form',

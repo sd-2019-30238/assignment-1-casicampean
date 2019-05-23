@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from "../../book/book";
+import {Book} from "../../models/book";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AccountServiceService} from "../../account/account-service.service";
-import {BookService} from "../../book/book.service";
+import {AccountServiceService} from "../service/account-service.service";
+import {BookService} from "../service/book.service";
 
 @Component({
   selector: 'app-book-form',

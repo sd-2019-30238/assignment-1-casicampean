@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../authentication.service";
+import {AuthenticationService} from "../service/authentication.service";
+import {Account} from "../../models/account";
 
 @Component({
   selector: 'app-login',
@@ -9,27 +10,34 @@ import {AuthenticationService} from "../authentication.service";
 })
 export class LoginComponent implements OnInit {
 
-  username = 'casi'
-  password = 'casi'
+  username = ''
+  password = ''
   invalidLogin = false
+  account = new Account();
 
   constructor(private router: Router, private loginService: AuthenticationService) { }
 
   ngOnInit(){
   }
 
-  login(x){
-    console.log("Login from value", x);
-    //this.router.navigate(['/users']);
+  getLoggedUser(): void {
+    this.loginService.getLoggedUser()
+      .subscribe(account => {
+        this.account = account;
+      });
   }
 
-  checkLogin(){
-    if(this.loginService.authenticate(this.username, this.password)){
+  checkLogin() {
+
+    this.account.username = this.username;
+    this.account.password = this.password;
+
+    this.loginService.validCredentials(this.username, this.password).subscribe(res => {
       this.router.navigate(['menu'])
-      this.invalidLogin = false
-    }else{
-      this.invalidLogin = true
-    }
+      this.loginService.authenticate(res as number, this.username);
+      this.getLoggedUser();
+
+    });
   }
 
 }

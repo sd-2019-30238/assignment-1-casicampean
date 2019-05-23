@@ -7,15 +7,16 @@ import { AccountListComponent } from './account-list/account-list.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {AccountServiceService} from "../account/account-service.service";
+import {AccountServiceService} from "./service/account-service.service";
 import { BookListComponent } from './book-list/book-list.component';
 import { BorrowedListComponent } from './borrowed-list/borrowed-list.component';
 import { BookFormComponent } from './book-form/book-form.component';
-import {BookService} from "../book/book.service";
-import {BorrowedService} from "../borrowed/borrowed.service";
+import {BookService} from "./service/book.service";
+import {BorrowedService} from "./service/borrowed.service";
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
-import {AuthenticationService} from "./authentication.service";
+import {AuthenticationService} from "./service/authentication.service";
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {AuthenticationService} from "./authentication.service";
     BorrowedListComponent,
     BookFormComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

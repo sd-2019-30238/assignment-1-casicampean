@@ -10,6 +10,7 @@
         <th scope="col">Genre</th>
         <th scope="col">Count</th>
         <th scope="col">B. Times</th>
+        <th *ngIf="service.isStaff()" scope="col">Delete Book</th>
       </tr>
       </thead>
       <tbody>
@@ -21,8 +22,10 @@
         <td>{{ book.genre }}</td>
         <td>{{ book.count }}</td>
         <td>{{ book.borrowed_times }}</td>
+        <td><button *ngIf="service.isStaff()">Delete</button></td>
       </tr>
       </tbody>
+
     </table>
   </div>
 </div>

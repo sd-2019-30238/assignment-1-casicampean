@@ -1,13 +1,16 @@
 package application.model;
 
 
+import application.observer.Observer;
+import application.observer.Subject;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book implements Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,9 @@ public class Book {
     @Column(name = "borrowed_times")
     private int borrowed_times;
 
+    @Transient
+    private ArrayList<Observer>observers;
+
 
     public Book(String title, String author, int release_date, String gedre, int count, int borrowed_times) {
         this.title = title;
@@ -36,8 +42,12 @@ public class Book {
         this.borrowed_times = borrowed_times;
     }
 
-    public Book() {
+    public Book(int c){
+        observers = new ArrayList<>();
+    }
 
+    public Book() {
+        observers = new ArrayList<>();
     }
 
     @Override
@@ -90,6 +100,9 @@ public class Book {
 
     public void setCount(int count) {
         this.count = count;
+        if(this.count > 0){
+            notifyObserver();
+        }
     }
 
     public void setTitle(String title) {
@@ -126,5 +139,31 @@ public class Book {
 
     public void setBorrowed_times(int borrowed_times) {
         this.borrowed_times = borrowed_times;
+    }
+
+    @Override
+    public void register(Observer observer) {
+        observers.add(observer);
+
+    }
+
+    @Override
+    public void unregister(Observer observer) {
+
+        int observerIndex = observers.indexOf(observer);
+        System.out.println("Observer " + (observerIndex+1) + " deleted");
+        observers.remove(observerIndex);
+
+
+
+
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(Observer observer : observers){
+            observer.update(count);
+        }
+
     }
 }
