@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Type</th>
+        <th scope="col">Payment</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.id}}</td>
+        <td>{{ account.username }}</td>
+        <td>{{ account.password }}</td>
+        <td>{{ account.type}}</td>
+        <td>{{ account.payment }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
