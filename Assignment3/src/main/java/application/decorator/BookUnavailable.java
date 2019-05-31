@@ -11,6 +11,9 @@ public class BookUnavailable extends  BookDecorator {
 
     @Override
     public String decorate() {
-        return super.decorate()+"unavailable";
+        if(this.book.getCount() < 0)
+            return super.decorate()+"unavailable";
+        else
+            return super.decorate()+"available";
     }
 }

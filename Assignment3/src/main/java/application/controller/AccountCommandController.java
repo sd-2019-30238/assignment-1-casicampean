@@ -22,7 +22,7 @@ public class AccountCommandController {
     }
 
     @PostMapping("/accounts") //COMMAND
-    void addAccount(@RequestBody AccountCommandDTO accountCommandDTO) {
+    public void addAccount(@RequestBody AccountCommandDTO accountCommandDTO) {
         Account account = AccountConverter.convertDTOtoAccount(accountCommandDTO);
         accountRepository.save(account);
     }
